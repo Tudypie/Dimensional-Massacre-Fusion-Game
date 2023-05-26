@@ -104,6 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2919223986762097918}
   - component: {fileID: 5481232663250488885}
+  - component: {fileID: 7564160731352112046}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -212,6 +213,20 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0020014215, y: -0.0020025782, z: 0.01059138}
     m_Extent: {x: 0.056630097, y: 0.10966919, z: 0.058679618}
   m_DirtyAABB: 0
+--- !u!64 &7564160731352112046
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414853815629586940}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1562275218897716241, guid: 4cba0c9d76f634c409e096db3aacd46d, type: 3}
 --- !u!1 &505755312037933183
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +782,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5374990663133847859}
   - component: {fileID: 4745700178425691016}
+  - component: {fileID: 5999527124296078577}
+  - component: {fileID: 3071774500654282590}
+  - component: {fileID: 287181353762779422}
   m_Layer: 0
   m_Name: HumanMonster
   m_TagString: Untagged
@@ -812,6 +830,54 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &5999527124296078577
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745700178425691017}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 4.03
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.69, z: 0.44}
+--- !u!195 &3071774500654282590
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745700178425691017}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 1
+  m_Speed: 17
+  m_Acceleration: 75
+  avoidancePriority: 50
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 4
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 2
+--- !u!114 &287181353762779422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745700178425691017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00d7251f43918c479e53913db8d8ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5221188741860278099
 GameObject:
   m_ObjectHideFlags: 0

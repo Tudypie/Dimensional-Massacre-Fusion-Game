@@ -9,6 +9,8 @@ public class SwitchPerspective : MonoBehaviour
     
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private Transform playerTransform;
+
+    private Quaternion initialTopDownRotation;
     [SerializeField] private Transform firstPersonTransform;
     [SerializeField] private Transform topDownTransform;
 
@@ -34,6 +36,8 @@ public class SwitchPerspective : MonoBehaviour
             Cursor.visible = isTopDown;
             Cursor.lockState = isTopDown ? CursorLockMode.None : CursorLockMode.Locked;
 
+            initialTopDownRotation = playerTransform.rotation;
+
             if (isTopDown)
             {   
                 playerRigidbody.constraints |= RigidbodyConstraints.FreezePositionY;
@@ -46,6 +50,11 @@ public class SwitchPerspective : MonoBehaviour
                 playerRigidbody.useGravity = true;
                 onFirstPersonSwitch.Invoke();
             }
+        }
+
+        if(isTopDown && playerTransform.rotation != initialTopDownRotation)
+        {
+            playerTransform.rotation = initialTopDownRotation;
         }
 
         if(finishedLerping)
