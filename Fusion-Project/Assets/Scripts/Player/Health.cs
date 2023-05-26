@@ -4,7 +4,8 @@ using TMPro;
 
 
 public class Health : MonoBehaviour
-{
+{   
+    private bool isDead;
     [SerializeField] private float totalHp;
     [SerializeField] private float currentHp;
 
@@ -29,13 +30,16 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {   
+        if(isDead)
+            return;
+
         OnTakeDamage?.Invoke();
 
         currentHp = Mathf.Clamp(currentHp - damage, 0, totalHp);
         if (currentHp <= 0)
         {
+            isDead = true;
             OnDie?.Invoke();
-            enabled = false;
         }
     }
 

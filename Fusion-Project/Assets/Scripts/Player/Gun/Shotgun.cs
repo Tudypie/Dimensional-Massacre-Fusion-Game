@@ -3,7 +3,8 @@ using UnityEngine;
 public class Shotgun : MonoBehaviour
 {
     [SerializeField] private float damage = 40f;
-    [SerializeField] private float range = 5f;
+    [SerializeField] private float raycastDistance = 5f;
+    [SerializeField] private float raycastRange = 5f;
     [SerializeField] private float shootDelay = 1.6f;
     private float shootTimer = 0f;
     public ParticleSystem muzzleFlash;
@@ -38,8 +39,9 @@ public class Shotgun : MonoBehaviour
 
         AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.shotgunShot);
 
-        RaycastHit hit;
-        if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, range))
+        RaycastHit[] hits = Physics.SphereCastAll(mainCamera.transform.position, raycastRange, mainCamera.transform.forward, raycastDistance);
+
+        foreach (RaycastHit hit in hits)
         {
             Debug.Log("Raycast hit: " + hit.transform.name);
 
@@ -56,6 +58,6 @@ public class Shotgun : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(mainCamera.transform.position, mainCamera.transform.forward * range);
+        Gizmos.DrawWireSphere(mainCamera.transform.position + mainCamera.transform.forward * raycastDistance, raycastRange);
     }
 }
