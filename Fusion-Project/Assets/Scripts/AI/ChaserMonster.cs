@@ -95,6 +95,8 @@ public class ChaserMonster : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(AudioPlayer.Instance.monsterDeath);
 
+        GetComponent<Collider>().enabled = false;
+
         anim.Play("Death");
         Destroy(gameObject, 10f);
     }

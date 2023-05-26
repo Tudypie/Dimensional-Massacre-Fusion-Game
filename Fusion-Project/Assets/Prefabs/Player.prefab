@@ -766,6 +766,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHp: 100
   currentHp: 0
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   OnDie:
     m_PersistentCalls:
       m_Calls:
@@ -2339,11 +2342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3087579189672582107, guid: dad6770205ce57045bc11d74589f7bef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.25
+      value: 2.845
       objectReference: {fileID: 0}
     - target: {fileID: 3087579189672582107, guid: dad6770205ce57045bc11d74589f7bef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.93000007
+      value: 0.9299998
       objectReference: {fileID: 0}
     - target: {fileID: 3087579189672582107, guid: dad6770205ce57045bc11d74589f7bef, type: 3}
       propertyPath: m_LocalRotation.w

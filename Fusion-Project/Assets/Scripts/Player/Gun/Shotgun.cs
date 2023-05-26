@@ -9,6 +9,13 @@ public class Shotgun : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public Camera mainCamera;
 
+    private Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     private void Update()
     {   
         if(shootTimer > 0f)
@@ -27,12 +34,17 @@ public class Shotgun : MonoBehaviour
 
         shootTimer = shootDelay;
 
+        anim.Play("Shoot");
+
         AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.shotgunShot);
 
         RaycastHit hit;
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, range))
         {
             Debug.Log("Raycast hit: " + hit.transform.name);
+
+            if (hit.transform.CompareTag("Player"))
+                return;
 
             Health health = hit.transform.GetComponent<Health>();
             if (health != null)
