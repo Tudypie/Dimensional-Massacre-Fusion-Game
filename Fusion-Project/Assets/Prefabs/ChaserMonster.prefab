@@ -786,7 +786,7 @@ GameObject:
   - component: {fileID: 3071774500654282590}
   - component: {fileID: 287181353762779422}
   m_Layer: 0
-  m_Name: HumanMonster
+  m_Name: ChaserMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -858,7 +858,7 @@ NavMeshAgent:
   m_Acceleration: 75
   avoidancePriority: 50
   m_AngularSpeed: 360
-  m_StoppingDistance: 0
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -878,6 +878,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00d7251f43918c479e53913db8d8ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  chaseDistance: 25
+  attackDelay: 1
 --- !u!1 &5221188741860278099
 GameObject:
   m_ObjectHideFlags: 0
