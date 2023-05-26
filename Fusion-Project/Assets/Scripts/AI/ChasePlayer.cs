@@ -8,7 +8,6 @@ public class ChasePlayer : MonoBehaviour
     private Transform playerTransform;
     private NavMeshAgent agent;
     private Animator anim;
-
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -21,6 +20,8 @@ public class ChasePlayer : MonoBehaviour
         agent.SetDestination(playerTransform.position);
         anim.SetBool("Chase", true);
     }
+
+
 
 
 }
