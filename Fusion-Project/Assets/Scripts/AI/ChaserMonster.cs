@@ -25,12 +25,15 @@ public class ChaserMonster : MonoBehaviour
 
     [SerializeField] private MeshCollider meshCollider;
     private Transform playerTransform;
+
+    private Camera mainCamera;
     private NavMeshAgent agent;
     private Animator anim;
     private AudioSource audioSource;
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        mainCamera = Camera.main;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -85,6 +88,12 @@ public class ChaserMonster : MonoBehaviour
         playerTransform.gameObject.GetComponent<Health>().TakeDamage(15f);
         yield return new WaitForSeconds(attackDelay);
         canAttack = true;
+    }
+
+    public void TakeDamage()
+    {
+        mainCamera.GetComponent<CameraShake>().Shake(0.8f);
+        audioSource.PlayOneShot(AudioPlayer.Instance.monsterHit);
     }
 
     public void Die()

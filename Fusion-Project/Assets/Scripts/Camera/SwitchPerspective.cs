@@ -4,15 +4,14 @@ using UnityEngine.Events;
 public class SwitchPerspective : MonoBehaviour
 {   
     private bool isTopDown = false;
-    private bool finishedLerping = false;
+    private bool lerpingFinished = true;
 
-    
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private Transform playerTransform;
-
-    private Quaternion initialTopDownRotation;
     [SerializeField] private Transform firstPersonTransform;
     [SerializeField] private Transform topDownTransform;
+
+    private Quaternion initialTopDownRotation;
 
     [Space]
 
@@ -26,18 +25,21 @@ public class SwitchPerspective : MonoBehaviour
     }
     private void Update()
     {
+        topDownTransform.position = new Vector3(playerTransform.position.x, topDownTransform.position.y, playerTransform.position.z);
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {   
-            finishedLerping = false;
-
+            lerpingFinished = false;
+            Invoke(nameof(LerpFinish), 0.5f);
+            
             isTopDown = !isTopDown;
             mainCamera.orthographic = isTopDown;
 
-            Cursor.visible = isTopDown;
-            Cursor.lockState = isTopDown ? CursorLockMode.None : CursorLockMode.Locked;
-
             initialTopDownRotation = playerTransform.rotation;
 
+            Cursor.visible = isTopDown;
+            Cursor.lockState = isTopDown ? CursorLockMode.None : CursorLockMode.Locked;
+            
             if (isTopDown)
             {   
                 playerRigidbody.constraints |= RigidbodyConstraints.FreezePositionY;
@@ -57,21 +59,15 @@ public class SwitchPerspective : MonoBehaviour
             playerTransform.rotation = initialTopDownRotation;
         }
 
-        if(finishedLerping)
+        if(lerpingFinished)
             return;
 
         Transform targetTransform = isTopDown ? topDownTransform : firstPersonTransform;
 
-        if(Vector3.Distance(transform.position, targetTransform.position) < 0.1f)
-        {
-            transform.position = targetTransform.position;
-            transform.rotation = targetTransform.rotation;
-            finishedLerping = true;
-            return;
-        }
-
-        transform.position = Vector3.Lerp(transform.position, targetTransform.position, 40f * Time.deltaTime);
+        transform.position = targetTransform.position;
         transform.rotation = Quaternion.Lerp(transform.rotation, targetTransform.rotation, 40f * Time.deltaTime);
     }
+
+    private void LerpFinish() => lerpingFinished = true;
 
 }

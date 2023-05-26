@@ -48,6 +48,7 @@ MonoBehaviour:
   audioSource: {fileID: 4720811559502449003}
   shotgunShot: {fileID: 8300000, guid: 88bde097e432b3b47adf3a58fc664452, type: 3}
   monsterLoop: {fileID: 8300000, guid: a306ad05f79955a459653174aa17d92c, type: 3}
+  monsterHit: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
   monsterDeath: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
 --- !u!82 &4720811559502449003
 AudioSource:

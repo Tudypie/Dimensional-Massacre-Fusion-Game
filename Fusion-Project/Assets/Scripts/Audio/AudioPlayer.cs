@@ -11,6 +11,7 @@ public class AudioPlayer : MonoBehaviour
 
     [Header("Monster")]
     public AudioClip monsterLoop;
+    public AudioClip monsterHit;
     public AudioClip monsterDeath;
 
     public static AudioPlayer Instance { get; private set; }

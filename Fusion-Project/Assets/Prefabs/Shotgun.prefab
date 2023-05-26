@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4220545987049775284}
   - component: {fileID: 2031066460170411622}
   - component: {fileID: 5643284532987949506}
+  - component: {fileID: 1981756405}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -95,12 +96,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2419163378596626785}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d16f5ef8a50cd14fa600dda84d01432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 0}
+  rotateTarget: {fileID: 0}
   followSpeed: 20
 --- !u!114 &5643284532987949506
 MonoBehaviour:
@@ -114,8 +116,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c46db8d233351148bac5ddce0397edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 40
-  range: 11
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  damage: 100
+  raycastDistance: 5.49
+  raycastRange: {x: 2.19, y: 3.27, z: 4.85}
   shootDelay: 0.8
   muzzleFlash: {fileID: 0}
   mainCamera: {fileID: 0}
+--- !u!95 &1981756405
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2419163378596626785}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 12861d63d398b3f44a18dbf5bbe65e54, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
