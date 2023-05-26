@@ -31,7 +31,7 @@ public class SwitchPerspective : MonoBehaviour
         {   
             lerpingFinished = false;
             Invoke(nameof(LerpFinish), 0.5f);
-            
+
             isTopDown = !isTopDown;
             mainCamera.orthographic = isTopDown;
 
@@ -59,12 +59,12 @@ public class SwitchPerspective : MonoBehaviour
             playerTransform.rotation = initialTopDownRotation;
         }
 
-        if(lerpingFinished)
-            return;
-
         Transform targetTransform = isTopDown ? topDownTransform : firstPersonTransform;
 
-        transform.position = targetTransform.position;
+        transform.position = new Vector3(transform.position.x, targetTransform.position.y, transform.position.z);
+
+        if(lerpingFinished)
+            return;
         transform.rotation = Quaternion.Lerp(transform.rotation, targetTransform.rotation, 40f * Time.deltaTime);
     }
 
