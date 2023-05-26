@@ -123,6 +123,7 @@ public class ChaserMonster : MonoBehaviour
         {
             state = State.Chase;
             StopAllCoroutines();
+            canAttack = true;
         }
     }
 
