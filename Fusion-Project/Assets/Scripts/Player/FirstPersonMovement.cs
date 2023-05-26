@@ -5,8 +5,16 @@ public class FirstPersonMovement : MonoBehaviour
 {
     public bool canMove { get; set;}
     public bool IsRunning { get; private set; }
-    public float runSpeed = 22f;
+    public float runSpeed;
+    public float RunSpeed{
+        get{
+            return runSpeed;
+        }
 
+        set{
+            runSpeed = value;
+        }
+    }
     Rigidbody rb;
     public List<System.Func<float>> speedOverrides = new List<System.Func<float>>();
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class ChaserMonster : MonoBehaviour
 {   
@@ -10,7 +11,8 @@ public class ChaserMonster : MonoBehaviour
     {
         Idle,
         Chase,
-        Attack
+        Attack,
+        Dead
     }
 
     [SerializeField] private State state;
@@ -19,20 +21,28 @@ public class ChaserMonster : MonoBehaviour
     [SerializeField] private float attackDelay = 1f;
     private bool canAttack = true;
 
-
     //References
     private Transform playerTransform;
     private NavMeshAgent agent;
     private Animator anim;
+    private AudioSource audioSource;
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.loop = true;
+        audioSource.clip = AudioPlayer.Instance.monsterLoop;
+        audioSource.Play();
     }
 
     private void Update()
     {
+        if(state == State.Dead)
+            return;
+
         switch(state)
         {
             case State.Chase:
@@ -75,8 +85,25 @@ public class ChaserMonster : MonoBehaviour
         canAttack = true;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void Die()
     {
+        state = State.Dead;
+
+        agent.SetDestination(transform.position);
+        anim.SetBool("Chase", false);
+
+        audioSource.Stop();
+        audioSource.PlayOneShot(AudioPlayer.Instance.monsterDeath);
+
+        anim.Play("Death");
+        Destroy(gameObject, 10f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {   
+        if(state == State.Dead)
+            return;
+
         if (other.tag == "Player")
         {   
             state = State.Attack;
@@ -85,6 +112,9 @@ public class ChaserMonster : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if(state == State.Dead)
+            return;
+
         if (other.tag == "Player")
         {
             state = State.Chase;

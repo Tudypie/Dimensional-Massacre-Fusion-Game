@@ -6,12 +6,12 @@ using TMPro;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float totalHp;
-    private float currentHp;
+    [SerializeField] private float currentHp;
 
-    public UnityEvent OnDie;
+    [SerializeField] private UnityEvent OnTakeDamage;
+    [SerializeField] private UnityEvent OnDie;
 
     [Header("UI")]
-
     [SerializeField] private TMP_Text hpText;
 
 
@@ -23,15 +23,19 @@ public class Health : MonoBehaviour
 
     private void Update()
     {   
-        hpText.text = Mathf.RoundToInt((currentHp / totalHp) * 100) + "%";
+        if(hpText != null)
+            hpText.text = Mathf.RoundToInt((currentHp / totalHp) * 100) + "%";
     }
 
     public void TakeDamage(float damage)
-    {
+    {   
+        OnTakeDamage?.Invoke();
+
         currentHp = Mathf.Clamp(currentHp - damage, 0, totalHp);
         if (currentHp <= 0)
         {
             OnDie?.Invoke();
+            enabled = false;
         }
     }
 

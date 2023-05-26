@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2123046449470870654}
   - component: {fileID: 4220545987049775284}
   - component: {fileID: 2031066460170411622}
+  - component: {fileID: 5643284532987949506}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -101,3 +102,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followTarget: {fileID: 0}
   followSpeed: 20
+--- !u!114 &5643284532987949506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2419163378596626785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c46db8d233351148bac5ddce0397edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 40
+  range: 8
+  shootDelay: 0.8
+  muzzleFlash: {fileID: 0}
+  mainCamera: {fileID: 0}
