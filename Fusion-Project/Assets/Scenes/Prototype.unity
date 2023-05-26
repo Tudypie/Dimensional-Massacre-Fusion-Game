@@ -5113,6 +5113,10 @@ PrefabInstance:
       propertyPath: onFirstPersonSwitch.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 705507994}
+    - target: {fileID: 7664352065460037395, guid: e60a34f7c65d33c43bdf4dad9339413e, type: 3}
+      propertyPath: totalHp
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e60a34f7c65d33c43bdf4dad9339413e, type: 3}
 --- !u!1 &1446138883
