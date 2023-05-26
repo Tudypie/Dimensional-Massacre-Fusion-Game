@@ -25,11 +25,13 @@ public class FirstPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Update IsRunning from input.
-        //IsRunning = canRun && Input.GetKey(runningKey);
-        IsRunning = true;
+        if(!canRun)
+        {
+            IsRunning = false;
+            return;
+        }
 
-        // Get targetMovingSpeed.
+        IsRunning = true;
         float targetMovingSpeed = IsRunning ? runSpeed : speed;
         if (speedOverrides.Count > 0)
         {
