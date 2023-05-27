@@ -15,6 +15,10 @@ public class AudioPlayer : MonoBehaviour
     public AudioClip monsterHit;
     public AudioClip monsterDeath;
 
+    [Header("Pickups")]
+
+    public AudioClip healthPickup;
+
     public static AudioPlayer Instance { get; private set; }
 
     private void Awake()

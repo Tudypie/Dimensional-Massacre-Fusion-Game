@@ -6,12 +6,12 @@ public class Shotgun : MonoBehaviour
 {   
     [SerializeField] private LayerMask enemyLayerMask;
     [SerializeField] private float damage = 40f;
-    [SerializeField] private float raycastDistance = 5f;
+    [SerializeField] private Vector3 raycastOffset;
     [SerializeField] private Vector3 raycastRange;
     [SerializeField] private float shootDelay = 1.6f;
     private float shootTimer = 0f;
-    public ParticleSystem muzzleFlash;
-    public Camera mainCamera;
+    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private Transform mainCamera;
     private Animator anim;
 
     private List<RaycastHit> hits = new List<RaycastHit>();
@@ -23,20 +23,17 @@ public class Shotgun : MonoBehaviour
 
     private void Update()
     {   
-        if(shootTimer > 0f)
+        if (shootTimer > 0f)
             shootTimer -= Time.deltaTime;
 
         if (!Input.GetButtonDown("Fire1") || shootTimer > 0f)
             return;
 
         Shoot();
-
     }
 
     private void Shoot()
     {
-        //muzzleFlash.Play();
-
         shootTimer = shootDelay;
 
         anim.Play("Shoot");
@@ -44,9 +41,11 @@ public class Shotgun : MonoBehaviour
         AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.shotgunShot);
 
         Vector3 boxHalfExtents = new Vector3(raycastRange.x, raycastRange.y, raycastRange.z) * 0.5f;
+        Vector3 offset = new Vector3(raycastOffset.x, raycastOffset.y, raycastOffset.z); 
+        Vector3 startPosition = transform.position + offset;
 
-        hits = new List<RaycastHit>(Physics.BoxCastAll(transform.position, boxHalfExtents, 
-        transform.forward, transform.rotation, raycastDistance, enemyLayerMask));
+        hits = new List<RaycastHit>(Physics.BoxCastAll(startPosition, boxHalfExtents, 
+            mainCamera.transform.forward, transform.rotation, enemyLayerMask));
 
         Debug.Log("Raycast hits: " + hits.Count);
 
@@ -64,20 +63,17 @@ public class Shotgun : MonoBehaviour
             }
         }
 
-        foreach (RaycastHit hit in hits)
-        {
-            hits.Remove(hit);
-        }
-
+        hits.Clear();
     }
-private void OnDrawGizmosSelected()
-{
-    Vector3 boxHalfExtents = new Vector3(raycastRange.x, raycastRange.y, raycastRange.z) * 0.5f;
 
-    Gizmos.color = Color.red;
-    Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
-    Gizmos.DrawWireCube(Vector3.forward * raycastDistance, boxHalfExtents * 2f);
-}
+    private void OnDrawGizmosSelected()
+    {
+        Vector3 boxHalfExtents = new Vector3(raycastRange.x, raycastRange.y, raycastRange.z) * 0.5f;
+        Vector3 offset = new Vector3(raycastOffset.x, raycastOffset.y, raycastOffset.z); 
+        Vector3 startPosition = transform.position + offset;
 
-
+        Gizmos.color = Color.red;
+        Gizmos.matrix = Matrix4x4.TRS(startPosition, transform.rotation, Vector3.one);
+        Gizmos.DrawWireCube(Vector3.zero, boxHalfExtents * 2f);
+    }
 }

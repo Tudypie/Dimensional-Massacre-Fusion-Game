@@ -43,7 +43,6 @@ public class Health : MonoBehaviour
         }
 
         OnTakeDamage?.Invoke();
-
         currentHp = Mathf.Clamp(currentHp - damage, 0, totalHp);
         if (currentHp <= 0)
         {
