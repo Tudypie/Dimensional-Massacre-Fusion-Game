@@ -22,7 +22,7 @@ public class FirstPersonMovement : MonoBehaviour
         canMove = true;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (!canMove)
         {
@@ -37,6 +37,7 @@ public class FirstPersonMovement : MonoBehaviour
         Vector2 normalizedInput = input.normalized;
         Vector3 targetVelocity = transform.rotation * new Vector3(normalizedInput.x * targetMovingSpeed, rb.velocity.y, normalizedInput.y * targetMovingSpeed);
 
-        rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, Time.fixedDeltaTime * damping);
+        rb.velocity = targetVelocity;
+        //rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, Time.fixedDeltaTime * damping);
     }
 }
