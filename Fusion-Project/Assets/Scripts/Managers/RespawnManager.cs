@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RespawnManager : MonoBehaviour
-{
+{   
+    [SerializeField] private Animator blackImageAnimator;
     private GameObject[] spawnpoints;
     private List<Transform> reachedSpawnpoints = new List<Transform>();
     private Transform playerTransform;
@@ -32,7 +33,15 @@ public class RespawnManager : MonoBehaviour
     }
 
     public void RespawnAtLatestSpawnpoint()
+    {   
+        StartCoroutine(RespawnSequence());
+    }
+
+    private IEnumerator RespawnSequence()
     {
+        blackImageAnimator.Play("FadeInAndOut");
+        yield return new WaitForSeconds(1f);
+
         if (reachedSpawnpoints.Count > 0)
         {
             playerTransform.position = reachedSpawnpoints[reachedSpawnpoints.Count - 1].position;

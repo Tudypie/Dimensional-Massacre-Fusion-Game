@@ -3,9 +3,8 @@ using UnityEngine.Events;
 
 public class SwitchPerspective : MonoBehaviour
 {   
-    [SerializeField] private bool isTopDown = false;
+    private bool isTopDown = false;
     private bool lerpingFinished = true;
-
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Transform firstPersonTransform;
@@ -35,7 +34,7 @@ public class SwitchPerspective : MonoBehaviour
             isTopDown = !isTopDown;
             mainCamera.orthographic = isTopDown;
 
-            initialTopDownRotation = playerTransform.rotation;
+            initialTopDownRotation = Quaternion.Euler(0f, RoundToNearestMultipleOf90(playerTransform.rotation.eulerAngles.y), 0f);
 
             Cursor.visible = isTopDown;
             Cursor.lockState = isTopDown ? CursorLockMode.None : CursorLockMode.Locked;
@@ -65,9 +64,26 @@ public class SwitchPerspective : MonoBehaviour
 
         if(lerpingFinished)
             return;
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetTransform.rotation, 40f * Time.deltaTime);
+        transform.rotation = targetTransform.rotation;
     }
 
     private void LerpFinish() => lerpingFinished = true;
+
+     private float RoundToNearestMultipleOf90(float value)
+    {
+        float remainder = value % 90;
+
+        float lowerMultiple = value - remainder;
+        float upperMultiple = lowerMultiple + 90;
+
+        if (remainder < 45)
+        {
+            return lowerMultiple;
+        }
+        else
+        {
+            return upperMultiple;
+        }
+    }
 
 }
