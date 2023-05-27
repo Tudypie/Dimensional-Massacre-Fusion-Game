@@ -31,7 +31,7 @@ public class RespawnManager : MonoBehaviour
             RespawnAtLatestSpawnpoint();
     }
 
-    private void RespawnAtLatestSpawnpoint()
+    public void RespawnAtLatestSpawnpoint()
     {
         if (reachedSpawnpoints.Count > 0)
         {
