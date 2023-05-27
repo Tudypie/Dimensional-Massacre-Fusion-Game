@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class SwitchPerspective : MonoBehaviour
 {   
-    private bool isTopDown = false;
+    [SerializeField] private bool isTopDown = false;
     private bool lerpingFinished = true;
 
     [SerializeField] private Rigidbody playerRigidbody;

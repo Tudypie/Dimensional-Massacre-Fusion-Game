@@ -8,14 +8,9 @@ public class Health : MonoBehaviour
     private bool isDead;
     [SerializeField] private float totalHp;
     [SerializeField] private float currentHp;
-
     [SerializeField] private UnityEvent OnTakeDamage;
     [SerializeField] private UnityEvent OnDie;
-
-    [Header("UI")]
     [SerializeField] private TMP_Text hpText;
-
-
 
     private void Start()
     {
@@ -48,6 +43,13 @@ public class Health : MonoBehaviour
         {
             isDead = true;
             OnDie?.Invoke();
+
+            if(gameObject.tag != "Player")
+                return;
+            
+            AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.playerDie);
+            SceneLoader.Instance.RestartScene(4f);
+            
         }
     }
 

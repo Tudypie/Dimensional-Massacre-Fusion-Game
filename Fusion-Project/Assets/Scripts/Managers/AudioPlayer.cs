@@ -6,6 +6,9 @@ public class AudioPlayer : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
 
+    [Header("Player")]
+    public AudioClip playerDie;
+
     [Header("Gun")]
     public AudioClip shotgunShot;
     public AudioClip shotgunEquip;
@@ -16,8 +19,8 @@ public class AudioPlayer : MonoBehaviour
     public AudioClip monsterDeath;
 
     [Header("Pickups")]
-
     public AudioClip healthPickup;
+    
 
     public static AudioPlayer Instance { get; private set; }
 
@@ -43,4 +46,6 @@ public class AudioPlayer : MonoBehaviour
     {
         audioSource.Stop();
     }
+
+    
 }
