@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2123046449470870654}
   - component: {fileID: 4220545987049775284}
   - component: {fileID: 2031066460170411622}
-  - component: {fileID: 5643284532987949506}
+  - component: {fileID: 245172521945025009}
   - component: {fileID: 1981756405}
   m_Layer: 0
   m_Name: Shotgun
@@ -104,7 +104,7 @@ MonoBehaviour:
   followTarget: {fileID: 0}
   rotateTarget: {fileID: 0}
   followSpeed: 20
---- !u!114 &5643284532987949506
+--- !u!114 &245172521945025009
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,18 +113,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2419163378596626785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c46db8d233351148bac5ddce0397edf, type: 3}
+  m_Script: {fileID: 11500000, guid: 489b258f8c4d5ec408b13eeb2a40b7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  damage: 100
-  raycastDistance: 4
-  raycastRange: {x: 2, y: 3.97, z: 10.22}
-  shootDelay: 0.8
   muzzleFlash: {fileID: 0}
-  mainCamera: {fileID: 0}
+  shootDelay: 0.8
+  maxDamage: 140
+  maxDistance: 14
+  minDistance: 6
+  spreadAngle: 9.5
 --- !u!95 &1981756405
 Animator:
   serializedVersion: 5

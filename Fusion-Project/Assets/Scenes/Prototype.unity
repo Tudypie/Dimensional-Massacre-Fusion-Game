@@ -7774,10 +7774,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 360658891514438963, guid: 0a8ba82f797995a40ae8b190145593e1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 360658891514438973, guid: 0a8ba82f797995a40ae8b190145593e1, type: 3}
       propertyPath: m_RootOrder
       value: 14
