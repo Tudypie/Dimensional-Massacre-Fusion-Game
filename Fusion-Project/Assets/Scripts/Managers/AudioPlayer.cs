@@ -19,6 +19,7 @@ public class AudioPlayer : MonoBehaviour
 
     [Header("Pickups")]
     public AudioClip healthPickup;
+    public AudioClip ammoPickup;
     
 
     public static AudioPlayer Instance { get; private set; }

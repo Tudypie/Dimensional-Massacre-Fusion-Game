@@ -28,6 +28,8 @@ public class Pickup : MonoBehaviour
                     AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.healthPickup);
                     break;
                 case PickupType.Ammo:
+                    other.GetComponent<Bullets>().AddBullets((int)amount);     
+                    AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.ammoPickup);            
                     break;
             }
             Destroy(gameObject);

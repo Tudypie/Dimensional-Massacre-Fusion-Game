@@ -11,6 +11,8 @@ public class NewShotgun : MonoBehaviour
     [SerializeField] private float maxDistance = 10f;
     [SerializeField] private float minDistance = 3f;
     [SerializeField] private float spreadAngle = 30f;
+
+    [SerializeField] private Bullets bullets;
     private float shootTimer = 0f;
     private Animator anim;
 
@@ -23,11 +25,13 @@ public class NewShotgun : MonoBehaviour
 
     private void Update()
     {
+    
         if (shootTimer > 0f)
             shootTimer -= Time.deltaTime;
 
         if (!Input.GetButtonDown("Fire1") || shootTimer > 0f)
             return;
+
 
         FireShotgun();
 
@@ -36,8 +40,17 @@ public class NewShotgun : MonoBehaviour
     private void FireShotgun()
     {
         shootTimer = shootDelay;
+
+        if(bullets.bullets <= 0)
+        {
+            AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.ammoPickup);
+            return;
+        }
+
         anim.Play("Shoot");
         AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.shotgunShot);
+
+        bullets.RemoveBullet();
 
         Vector3 direction = transform.forward;
         Quaternion spreadRotation = Quaternion.AngleAxis(spreadAngle, transform.up);
