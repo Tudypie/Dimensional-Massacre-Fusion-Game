@@ -19,6 +19,7 @@ public class ChaserMonster : MonoBehaviour
 
     [SerializeField] private float chaseDistance = 20f;
     [SerializeField] private float attackDelay = 1f;
+    [SerializeField] private float attackDamage = 15f;
     private bool canAttack = true;
 
     //References
@@ -37,10 +38,6 @@ public class ChaserMonster : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-
-        audioSource.loop = true;
-        audioSource.clip = AudioPlayer.Instance.monsterLoop;
-        audioSource.Play();
     }
 
     private void Update()
@@ -85,7 +82,7 @@ public class ChaserMonster : MonoBehaviour
     private IEnumerator AttackSequence()
     {   
         canAttack = false;
-        playerTransform.gameObject.GetComponent<Health>().TakeDamage(15f);
+        playerTransform.gameObject.GetComponent<Health>().TakeDamage(attackDamage);
         yield return new WaitForSeconds(attackDelay);
         canAttack = true;
     }
@@ -93,6 +90,7 @@ public class ChaserMonster : MonoBehaviour
     public void TakeDamage()
     {
         mainCamera.GetComponent<CameraShake>().Shake(0.8f);
+
         audioSource.PlayOneShot(AudioPlayer.Instance.monsterHit);
     }
 
@@ -109,7 +107,7 @@ public class ChaserMonster : MonoBehaviour
         meshCollider.enabled = false;
 
         anim.Play("Death");
-        Destroy(gameObject, 15f);
+        Destroy(gameObject, 1.5f);
     }
 
     private void OnTriggerEnter(Collider other)

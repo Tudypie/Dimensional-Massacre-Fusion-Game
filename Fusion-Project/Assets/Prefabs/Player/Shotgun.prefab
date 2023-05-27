@@ -121,9 +121,9 @@ MonoBehaviour:
     m_Bits: 128
   muzzleFlash: {fileID: 0}
   shootDelay: 0.8
-  maxDamage: 200
+  maxDamage: 150
   maxDistance: 16
-  minDistance: 6
+  minDistance: 4
   spreadAngle: 9
 --- !u!95 &1981756405
 Animator:

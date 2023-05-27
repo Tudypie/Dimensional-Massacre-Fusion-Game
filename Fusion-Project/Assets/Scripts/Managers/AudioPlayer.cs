@@ -14,7 +14,6 @@ public class AudioPlayer : MonoBehaviour
     public AudioClip shotgunEquip;
 
     [Header("Monster")]
-    public AudioClip monsterLoop;
     public AudioClip monsterHit;
     public AudioClip monsterDeath;
 
