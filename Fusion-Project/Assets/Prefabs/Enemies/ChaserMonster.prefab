@@ -883,6 +883,7 @@ MonoBehaviour:
   state: 0
   chaseDistance: 25
   attackDelay: 0.6
+  attackDamage: 15
   meshCollider: {fileID: 7564160731352112046}
 --- !u!114 &4881933333676706386
 MonoBehaviour:
@@ -896,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3e3577138e64a488ab0975ae99eefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHp: 130
+  totalHp: 150
   currentHp: 0
   OnTakeDamage:
     m_PersistentCalls:
