@@ -412,6 +412,7 @@ GameObject:
   - component: {fileID: 7664352065460037395}
   - component: {fileID: 3726687874464707454}
   - component: {fileID: 8662125012796368605}
+  - component: {fileID: 3603031105840806706}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -651,9 +652,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94df6623996ce640b658ad686211307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullets: 30
+  bullets: 999
   maxBullets: 999
   bulletsText: {fileID: 114847816032557100}
+--- !u!114 &3603031105840806706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40805498025519910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccad18ab709d95645aa24e4cc7742bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchForce: 10
 --- !u!1 &41290067302246540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3329,6 +3343,10 @@ PrefabInstance:
       propertyPath: bullets
       value: 
       objectReference: {fileID: 8662125012796368605}
+    - target: {fileID: 245172521945025009, guid: dad6770205ce57045bc11d74589f7bef, type: 3}
+      propertyPath: propulsion
+      value: 
+      objectReference: {fileID: 3603031105840806706}
     - target: {fileID: 2031066460170411622, guid: dad6770205ce57045bc11d74589f7bef, type: 3}
       propertyPath: followTarget
       value: 
@@ -3412,6 +3430,10 @@ PrefabInstance:
       propertyPath: bullets
       value: 
       objectReference: {fileID: 8662125012796368605}
+    - target: {fileID: 245172521945025009, guid: dad6770205ce57045bc11d74589f7bef, type: 3}
+      propertyPath: propulsion
+      value: 
+      objectReference: {fileID: 3603031105840806706}
     - target: {fileID: 2419163378596626785, guid: dad6770205ce57045bc11d74589f7bef, type: 3}
       propertyPath: m_Name
       value: Shotgun

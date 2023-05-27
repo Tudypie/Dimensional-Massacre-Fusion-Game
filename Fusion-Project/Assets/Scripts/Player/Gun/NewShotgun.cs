@@ -13,6 +13,7 @@ public class NewShotgun : MonoBehaviour
     [SerializeField] private float spreadAngle = 30f;
 
     [SerializeField] private Bullets bullets;
+    [SerializeField] private Propulsion propulsion;
     private float shootTimer = 0f;
     private Animator anim;
 
@@ -51,6 +52,7 @@ public class NewShotgun : MonoBehaviour
         AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.shotgunShot);
 
         bullets.RemoveBullet();
+        propulsion.ApplyPropulsion();
 
         Vector3 direction = transform.forward;
         Quaternion spreadRotation = Quaternion.AngleAxis(spreadAngle, transform.up);
