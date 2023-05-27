@@ -45,8 +45,8 @@ public class Shotgun : MonoBehaviour
 
         Vector3 boxHalfExtents = new Vector3(raycastRange.x, raycastRange.y, raycastRange.z) * 0.5f;
 
-        hits = new List<RaycastHit>(Physics.BoxCastAll(mainCamera.transform.position, boxHalfExtents, 
-        mainCamera.transform.forward, mainCamera.transform.rotation, raycastDistance, enemyLayerMask));
+        hits = new List<RaycastHit>(Physics.BoxCastAll(transform.position, boxHalfExtents, 
+        transform.forward, transform.rotation, raycastDistance, enemyLayerMask));
 
         Debug.Log("Raycast hits: " + hits.Count);
 
@@ -75,7 +75,7 @@ private void OnDrawGizmosSelected()
     Vector3 boxHalfExtents = new Vector3(raycastRange.x, raycastRange.y, raycastRange.z) * 0.5f;
 
     Gizmos.color = Color.red;
-    Gizmos.matrix = Matrix4x4.TRS(mainCamera.transform.position, mainCamera.transform.rotation, Vector3.one);
+    Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
     Gizmos.DrawWireCube(Vector3.forward * raycastDistance, boxHalfExtents * 2f);
 }
 

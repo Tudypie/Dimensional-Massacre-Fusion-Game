@@ -8,6 +8,7 @@ public class AudioPlayer : MonoBehaviour
 
     [Header("Gun")]
     public AudioClip shotgunShot;
+    public AudioClip shotgunEquip;
 
     [Header("Monster")]
     public AudioClip monsterLoop;
@@ -27,6 +28,11 @@ public class AudioPlayer : MonoBehaviour
     public void PlayAudio(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+
+    public void PlayAudio(AudioClip clip, float volume)
+    {
+        audioSource.PlayOneShot(clip, volume);
     }
 
     public void StopAudio()
