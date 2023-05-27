@@ -72,6 +72,8 @@ public class NewShotgun : MonoBehaviour
         }
     }
 
+
+
     private float CalculateDamage(float distance)
     {
         if (distance <= minDistance)
