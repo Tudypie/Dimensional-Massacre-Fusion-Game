@@ -33,6 +33,15 @@ public class Health : MonoBehaviour
         if(isDead)
             return;
 
+        if(TryGetComponent(out Shield shield))
+        {   
+            if(shield.shieldHealth > 0)
+            {
+                shield.DamageShield(damage);
+                damage *= shield.damageReduction;
+            }
+        }
+
         OnTakeDamage?.Invoke();
 
         currentHp = Mathf.Clamp(currentHp - damage, 0, totalHp);
@@ -41,6 +50,11 @@ public class Health : MonoBehaviour
             isDead = true;
             OnDie?.Invoke();
         }
+    }
+
+    public void GetHealth(float amount)
+    {
+        currentHp = Mathf.Clamp(currentHp + amount, 0, totalHp);
     }
 
 }

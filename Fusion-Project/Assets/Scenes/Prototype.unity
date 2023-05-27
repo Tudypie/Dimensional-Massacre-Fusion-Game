@@ -5105,10 +5105,6 @@ PrefabInstance:
       propertyPath: onFirstPersonSwitch.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 705507994}
-    - target: {fileID: 7465947928681014301, guid: e60a34f7c65d33c43bdf4dad9339413e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e60a34f7c65d33c43bdf4dad9339413e, type: 3}
 --- !u!1 &1446138883
@@ -7015,7 +7011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2122572871
 MonoBehaviour:
   m_ObjectHideFlags: 0
