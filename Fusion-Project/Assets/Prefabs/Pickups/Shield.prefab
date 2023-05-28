@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4283149011701972336}
   - component: {fileID: 4766605745619698365}
   - component: {fileID: 4339832473207831425}
+  - component: {fileID: 5795116838693835891}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -96,7 +97,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01751709
+  m_Radius: 0.00951709
   m_Center: {x: 2.3283067e-10, y: 0.0010967834, z: 0}
 --- !u!114 &4339832473207831425
 MonoBehaviour:
@@ -112,3 +113,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupType: 1
   amount: 25
+--- !u!95 &5795116838693835891
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830702401723388226}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 166e266b43aa87e498e0673436cfea58, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 13301485490545729}
   - component: {fileID: 13301485490545734}
   - component: {fileID: 8321758173825993029}
+  - component: {fileID: 5295380019190950824}
   m_Layer: 0
   m_Name: Ammo
   m_TagString: Untagged
@@ -47,7 +48,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8321758173825993029
 MonoBehaviour:
@@ -62,7 +63,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupType: 2
-  amount: 10
+  amount: 6
+--- !u!95 &5295380019190950824
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13301485490545728}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b93a086da2f2cc245905d266e8e0684a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1935693757413707961
 GameObject:
   m_ObjectHideFlags: 0

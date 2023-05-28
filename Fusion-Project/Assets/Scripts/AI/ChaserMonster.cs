@@ -69,23 +69,35 @@ public class ChaserMonster : MonoBehaviour
     {
         agent.SetDestination(playerTransform.position);
         anim.SetBool("Chase", true);
+
+        if(Vector3.Distance(transform.position, playerTransform.position) <= agent.stoppingDistance)
+        {
+            state = State.Attack;
+        }
+
+        if(Vector3.Distance(transform.position, playerTransform.position) > chaseDistance * 1.5f)
+        {
+            state = State.Idle;
+        }
     }
 
     private void Attack()
     {
+        if(Vector3.Distance(transform.position, playerTransform.position) > agent.stoppingDistance)
+        {
+            state = State.Chase;
+        }
+
         if(!canAttack)
             return;
 
-        StartCoroutine(AttackSequence());
+        canAttack = false;
+        Debug.Log(gameObject.name + " damaged player for " + attackDamage + " damage");
+        playerTransform.gameObject.GetComponent<Health>().TakeDamage(attackDamage);
+        Invoke("AttackDelay", attackDelay);
     }
 
-    private IEnumerator AttackSequence()
-    {   
-        canAttack = false;
-        playerTransform.gameObject.GetComponent<Health>().TakeDamage(attackDamage);
-        yield return new WaitForSeconds(attackDelay);
-        canAttack = true;
-    }
+    private void AttackDelay() => canAttack = true;
 
     public void TakeDamage()
     {
@@ -129,8 +141,6 @@ public class ChaserMonster : MonoBehaviour
         if (other.tag == "Player")
         {
             state = State.Chase;
-            StopAllCoroutines();
-            canAttack = true;
         }
     }
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5658837062684548812}
   - component: {fileID: 5658837062684548815}
   - component: {fileID: 3093405665388335007}
+  - component: {fileID: 4157350264129617538}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -96,7 +97,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.637062
+  m_Radius: 0.37062
   m_Center: {x: -0.000000033527623, y: 0.00000021606684, z: 0.00000012665991}
 --- !u!114 &3093405665388335007
 MonoBehaviour:
@@ -112,3 +113,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupType: 0
   amount: 25
+--- !u!95 &4157350264129617538
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207192890036158921}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 976a48fc9f3352e46a0632adc29d4c06, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

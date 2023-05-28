@@ -6,7 +6,7 @@ using TMPro;
 public class Shield : MonoBehaviour
 {
     public float damageReduction = 0.5f;
-    public float shieldMaxHealth = 100f;
+    public float shieldMaxHealth = 400f;
     public float shieldHealth = 100f;
 
     [SerializeField] private TMP_Text shieldText;
@@ -14,7 +14,7 @@ public class Shield : MonoBehaviour
     private void Update()
     {
         if(shieldText != null)
-            shieldText.text = Mathf.RoundToInt((shieldHealth / shieldMaxHealth) * 100) + "%";
+            shieldText.text = shieldHealth.ToString("F0");
     }
 
     public void DamageShield(float damage)

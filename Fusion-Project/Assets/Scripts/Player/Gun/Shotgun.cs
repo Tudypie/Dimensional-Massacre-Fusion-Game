@@ -73,7 +73,7 @@ public class Shotgun : MonoBehaviour
         }
 
     }
-private void OnDrawGizmosSelected()
+private void OnDrawGizmos()
 {
     Vector3 boxHalfExtents = new Vector3(raycastRange.x, raycastRange.y, raycastRange.z) * 0.5f;
 
