@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 3726687874464707454}
   - component: {fileID: 8662125012796368605}
   - component: {fileID: 3603031105840806706}
+  - component: {fileID: 5322219494510323048}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -783,6 +784,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchForce: 12
+--- !u!114 &5322219494510323048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40805498025519910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dab5221c18a73549896c622a0ed8191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &41407638652837394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1270,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  isGrounded: 0
+  isGrounded: 1
 --- !u!1 &42420789213238847
 GameObject:
   m_ObjectHideFlags: 0
@@ -5622,7 +5635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -312.7}
+  m_AnchoredPosition: {x: 0, y: -301.2}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4186091923554885414
@@ -5655,8 +5668,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8ce3b469a4ad44547bbb0e67f8383527, type: 2}
-  m_sharedMaterial: {fileID: -2650473026703013389, guid: 8ce3b469a4ad44547bbb0e67f8383527, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7654b999ce0fea644ac91ebbd431652a, type: 2}
+  m_sharedMaterial: {fileID: -77784315837839429, guid: 7654b999ce0fea644ac91ebbd431652a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5688,7 +5701,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
