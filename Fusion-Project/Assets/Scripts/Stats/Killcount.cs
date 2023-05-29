@@ -18,8 +18,12 @@ public class Killcount : MonoBehaviour
         else
             Destroy(gameObject);
 
-        kills = PlayerPrefs.GetInt("Kills");
+        Invoke("LoadKills", 0.5f);
+    }
 
+    private void LoadKills()
+    {
+        kills = PlayerPrefs.GetInt("Kills");
         killText.text = kills.ToString();
     }
 

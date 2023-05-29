@@ -27,6 +27,15 @@ public class QuitGame : MonoBehaviour
         ammo = PlayerPrefs.GetInt("Bullets");
         deaths = PlayerPrefs.GetInt("Deaths");
 
+        if(deaths <= 0)
+        {
+            deathsText.color = Color.green;
+        }
+        else
+        {
+            deathsText.color = Color.red;
+        }
+
         killText.text = "Kills: " + kills.ToString();
         healthText.text = "Health: " + health.ToString();
         shieldText.text = "Shield: " + shield.ToString();

@@ -17,7 +17,7 @@ public class OnEnterTriggerEvent : MonoBehaviour
         
         onEnterEvent?.Invoke();
 
-        if(oneTimeTrigger)
+        if(oneTimeTrigger && onExitEvent == null)
             GetComponent<Collider>().enabled = false;
     }
 
@@ -27,5 +27,8 @@ public class OnEnterTriggerEvent : MonoBehaviour
             return;
         
         onExitEvent?.Invoke();
+
+        if(oneTimeTrigger)
+            GetComponent<Collider>().enabled = false;
     }
 }

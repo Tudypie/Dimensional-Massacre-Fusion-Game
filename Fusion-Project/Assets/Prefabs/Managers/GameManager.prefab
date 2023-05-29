@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSceneIsLoadingScene: 0
+  webGLBuild: 0
 --- !u!114 &1795769384
 MonoBehaviour:
   m_ObjectHideFlags: 0
