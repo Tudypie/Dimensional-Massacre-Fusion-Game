@@ -11,8 +11,14 @@ public class Shield : MonoBehaviour
 
     [SerializeField] private TMP_Text shieldText;
 
+    private void Start()
+    {   
+        if(PlayerPrefs.GetFloat("Shield") != 0 && gameObject.tag == "Player")
+            shieldHealth = PlayerPrefs.GetFloat("Shield");
+    }
+
     private void Update()
-    {
+    {          
         if(shieldText != null)
             shieldText.text = shieldHealth.ToString("F0");
     }
@@ -25,6 +31,11 @@ public class Shield : MonoBehaviour
     public void GetShield(float amount)
     {
         shieldHealth = Mathf.Clamp(shieldHealth + amount, 0, shieldMaxHealth);
+    }
+
+    public void SaveShieldAmount()
+    {
+        PlayerPrefs.SetFloat("Shield", shieldHealth);
     }
     
 }

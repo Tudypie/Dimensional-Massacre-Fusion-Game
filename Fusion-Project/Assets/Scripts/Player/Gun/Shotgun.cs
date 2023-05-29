@@ -14,6 +14,8 @@ public class Shotgun : MonoBehaviour
     public Camera mainCamera;
     private Animator anim;
 
+    [SerializeField] private Bullets bullets;
+
     private List<RaycastHit> hits = new List<RaycastHit>();
 
     private void Start()
@@ -42,7 +44,15 @@ public class Shotgun : MonoBehaviour
 
         shootTimer = shootDelay;
 
+        if(bullets.bullets <= 0)
+        {
+            AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.ammoPickup);
+            return;
+        }
+
         anim.Play("Shoot");
+
+        bullets.RemoveBullet();
 
         AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.shotgunShot);
 
@@ -73,14 +83,14 @@ public class Shotgun : MonoBehaviour
         }
 
     }
-private void OnDrawGizmos()
-{
-    Vector3 boxHalfExtents = new Vector3(raycastRange.x, raycastRange.y, raycastRange.z) * 0.5f;
+    private void OnDrawGizmos()
+    {
+        Vector3 boxHalfExtents = new Vector3(raycastRange.x, raycastRange.y, raycastRange.z) * 0.5f;
 
-    Gizmos.color = Color.red;
-    Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
-    Gizmos.DrawWireCube(Vector3.zero, boxHalfExtents * 2f);
-}
+        Gizmos.color = Color.red;
+        Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
+        Gizmos.DrawWireCube(Vector3.zero, boxHalfExtents * 2f);
+    }
 
 
 }

@@ -7,21 +7,27 @@ using TMPro;
 public class Health : MonoBehaviour
 {   
     private bool isDead;
-    [SerializeField] private float totalHp = 400f;
-    [SerializeField] private float currentHp;
+    [SerializeField] public float totalHp = 400f;
+    [SerializeField] public float currentHp;
     [SerializeField] private UnityEvent OnTakeDamage;
     [SerializeField] private UnityEvent OnDie;
     [SerializeField] private TMP_Text hpText;
     [SerializeField] private Image bloodImage;
 
+    private void Start()
+    {
+        if(PlayerPrefs.GetFloat("Health") != 0 && gameObject.tag == "Player")
+            currentHp = PlayerPrefs.GetFloat("Health");
+    }
+
     private void Update()
-    {   
+    {       
         if(hpText != null)
             hpText.text = currentHp.ToString("F0");
 
         if(bloodImage != null && currentHp < 100f)
-            bloodImage.color = new Color(1, 1, 1, 1 - (currentHp / totalHp));
-        else
+            bloodImage.color = new Color(1, 1, 1, Mathf.Min(1 - (currentHp / 100f), 0.05f));
+        else if(bloodImage != null && currentHp >= 100f)
             bloodImage.color = new Color(1, 1, 1, 0);
     }
 
@@ -59,6 +65,11 @@ public class Health : MonoBehaviour
     public void GetHealth(float amount)
     {
         currentHp = Mathf.Clamp(currentHp + amount, 0, totalHp);
+    }
+
+    public void SaveHealthAmount()
+    {
+        PlayerPrefs.SetFloat("Health", currentHp);
     }
 
 }

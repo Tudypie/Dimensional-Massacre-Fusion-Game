@@ -650,7 +650,8 @@ MonoBehaviour:
   state: 0
   chaseDistance: 20
   attackDelay: 0.6
-  attackDamage: 6
+  attackDamage: 20
+  dropPickupChance: 5
   meshCollider: {fileID: 960343823479232784}
 --- !u!114 &6061488060013630599
 MonoBehaviour:

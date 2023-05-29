@@ -17,9 +17,10 @@ public class ChaserMonster : MonoBehaviour
 
     [SerializeField] private State state;
 
-    [SerializeField] private float chaseDistance = 20f;
+    [SerializeField] public float chaseDistance = 20f;
     [SerializeField] private float attackDelay = 1f;
     [SerializeField] private float attackDamage = 15f;
+    [SerializeField] public int dropPickupChance = 5;
     private bool canAttack = true;
 
     //References
@@ -75,7 +76,7 @@ public class ChaserMonster : MonoBehaviour
             state = State.Attack;
         }
 
-        if(Vector3.Distance(transform.position, playerTransform.position) > chaseDistance * 1.5f)
+        if(Vector3.Distance(transform.position, playerTransform.position) > chaseDistance)
         {
             state = State.Idle;
         }
@@ -120,6 +121,12 @@ public class ChaserMonster : MonoBehaviour
 
         anim.Play("Death");
         Destroy(gameObject, 1.5f);
+
+        int random = Random.Range(0, dropPickupChance);
+        if(random == 0)
+            SpawnPickupable.Instance.Spawn(transform);
+
+        Killcount.Instance.AddKill();
     }
 
     private void OnTriggerEnter(Collider other)

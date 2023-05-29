@@ -1,14 +1,29 @@
+using System.Collections;
 using UnityEngine;
 
 public class RandomSpawn : MonoBehaviour
 {
-    public GameObject objectToSpawn;
+    public GameObject[] objectToSpawn;
     public Vector3 spawnBoxSize = new Vector3(10f, 10f, 10f);
     public float spawnInterval = 3f;
 
-    private void Start()
+    private void OnEnable()
     {
-        InvokeRepeating("SpawnObject", 0f, spawnInterval);
+        StartCoroutine(SpawnObjectCoroutine());
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
+    private IEnumerator SpawnObjectCoroutine()
+    {
+        while(true)
+        {
+            SpawnObject();
+            yield return new WaitForSeconds(spawnInterval);
+        }
     }
 
     private void SpawnObject()
@@ -21,7 +36,15 @@ public class RandomSpawn : MonoBehaviour
 
         Vector3 spawnPosition = transform.position + randomPosition;
 
-        Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+        int random = Random.Range(0, objectToSpawn.Length);
+        GameObject spawnedObject = Instantiate(objectToSpawn[random], spawnPosition, Quaternion.identity);
+
+        if(spawnedObject.GetComponent<ChaserMonster>() != null)
+        {
+            spawnedObject.GetComponent<ChaserMonster>().chaseDistance = 150f;
+            spawnedObject.GetComponent<ChaserMonster>().dropPickupChance = 2;
+        }
+
     }
 
     private void OnDrawGizmosSelected()
