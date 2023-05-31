@@ -28,7 +28,6 @@ public class PlayerStats : MonoBehaviour
 
         if(PlayerPrefs.GetInt("NewGame") == 0)
         {
-            PlayerPrefs.SetInt("NewGame", 1);
             SetInitialStats();
         }
         else
@@ -38,6 +37,8 @@ public class PlayerStats : MonoBehaviour
 
     }
 
+    public void NewGame() => PlayerPrefs.SetInt("NewGame", 0);
+
     public void SetInitialStats()
     {
         PlayerPrefs.SetFloat("Health", initialHealth);
@@ -45,6 +46,7 @@ public class PlayerStats : MonoBehaviour
         PlayerPrefs.SetInt("Bullets", initialBullets);
         PlayerPrefs.SetInt("Kills", 0);
         PlayerPrefs.SetInt("Deaths", 0);
+        PlayerPrefs.SetInt("NewGame", 1);
     }
 
     public void LoadStats()
@@ -55,7 +57,8 @@ public class PlayerStats : MonoBehaviour
         kills = PlayerPrefs.GetInt("Kills");
         deaths = PlayerPrefs.GetInt("Deaths");
     }
-
+    
+    //called whenever a scene is loaded from SceneLoader.cs
     public void SaveStats()
     {
         PlayerPrefs.SetFloat("Health", playerHealth.currentHp);
@@ -63,16 +66,6 @@ public class PlayerStats : MonoBehaviour
         PlayerPrefs.SetInt("Bullets", playerBullets.bullets);
         PlayerPrefs.SetInt("Kills", kills);
         PlayerPrefs.SetInt("Deaths", deaths);
-    }
-
-    public void ResetAllStats()
-    {
-        PlayerPrefs.SetFloat("Health", initialHealth);
-        PlayerPrefs.SetFloat("Shield", initialShield);
-        PlayerPrefs.SetInt("Bullets", initialBullets);
-        PlayerPrefs.SetInt("Kills", 0);
-        PlayerPrefs.SetInt("Deaths", 0);
-        PlayerPrefs.SetInt("NewGame", 0);
     }
 
     public void AddKill() => kills++;

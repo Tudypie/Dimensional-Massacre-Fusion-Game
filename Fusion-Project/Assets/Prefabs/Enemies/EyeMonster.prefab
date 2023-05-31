@@ -540,9 +540,9 @@ GameObject:
   - component: {fileID: 6061488060013631353}
   - component: {fileID: 6061488060013630599}
   - component: {fileID: 6061488060013630598}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: EyeMonster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -596,7 +596,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.06
   m_Center: {x: 0, y: 0.04, z: 0}
 --- !u!195 &6061488060013631352
 NavMeshAgent:
@@ -653,8 +653,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3e3577138e64a488ab0975ae99eefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHp: 80
-  currentHp: 80
+  totalHp: 50
+  currentHp: 50
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls:

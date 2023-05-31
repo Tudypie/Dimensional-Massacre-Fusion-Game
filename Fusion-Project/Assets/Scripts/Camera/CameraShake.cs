@@ -17,11 +17,7 @@ public class CameraShake : MonoBehaviour
         if (shakeTimer > 0)
         {
             ShakeCamera();
-            shakeTimer -= Time.deltaTime;
-        }
-        else
-        {
-            transform.localPosition = initialPosition;
+            Invoke("StopShaking", shakeTimer);
         }
     }
 
@@ -37,5 +33,10 @@ public class CameraShake : MonoBehaviour
 
         Vector3 shakeOffset = new Vector3(offsetX, offsetY, 0f) * shakeMagnitude;
         transform.localPosition = initialPosition + shakeOffset;
+    }
+
+    private void StopShaking()
+    {
+        shakeTimer = 0f;
     }
 }

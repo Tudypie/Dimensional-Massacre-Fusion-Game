@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
             hpText.text = currentHp.ToString("F0");
 
         if(bloodImage != null && currentHp < 100f)
-            bloodImage.color = new Color(1, 1, 1, Mathf.Min(1 - (currentHp / 100f), 0.05f));
+            bloodImage.color = new Color(1, 1, 1, Mathf.Min(1 - (currentHp / 100f), 0.7f));
         else if(bloodImage != null && currentHp >= 100f)
             bloodImage.color = new Color(1, 1, 1, 0);
     }

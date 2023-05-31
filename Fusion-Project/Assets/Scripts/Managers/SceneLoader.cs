@@ -39,12 +39,13 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(int index)
     {   
+        PlayerStats.Instance.SaveStats();
         if(webGLBuild)
         {
             SceneManager.LoadScene(index);
             return;
         }
-            
+     
         sceneToLoad = index;
         SceneManager.LoadScene("Loading");
     }      
@@ -56,7 +57,7 @@ public class SceneLoader : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             return;
         }
-
+        
         sceneToLoad = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene("Loading");
     }

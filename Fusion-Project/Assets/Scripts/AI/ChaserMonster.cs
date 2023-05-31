@@ -22,7 +22,7 @@ public class ChaserMonster : MonoBehaviour
     [SerializeField] private float attackDamage = 15f;
     [SerializeField] private float attackRange = 3f;
     [SerializeField] public int dropPickupChance = 5;
-    [SerializeField] private bool canAttack = true;
+    private bool canAttack = true;
 
     [Header("References")]
     [SerializeField] private Collider monsterCollider;

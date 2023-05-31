@@ -6,7 +6,7 @@ public class FirstPersonMovement : MonoBehaviour
     public bool canMove { get; set; }
     public bool IsRunning { get; private set; }
     public float runSpeed;
-    public float damping = 10f;
+    public float damping = 25f;
     public float RunSpeed
     {
         get { return runSpeed; }
@@ -34,10 +34,13 @@ public class FirstPersonMovement : MonoBehaviour
         float targetMovingSpeed = runSpeed;
 
         Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        Vector2 normalizedInput = input.normalized;
-        Vector3 targetVelocity = transform.rotation * new Vector3(normalizedInput.x * targetMovingSpeed, rb.velocity.y, normalizedInput.y * targetMovingSpeed);
+        float inputMagnitude = input.magnitude;
+        inputMagnitude = Mathf.Clamp(inputMagnitude, 0f, 1f);
+        input = input.normalized * inputMagnitude;
 
-        rb.velocity = targetVelocity;
-        //rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, Time.fixedDeltaTime * damping);
+        Vector3 targetVelocity = transform.rotation * new Vector3(input.x * targetMovingSpeed, rb.velocity.y, input.y * targetMovingSpeed);
+
+        rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, Time.deltaTime * damping);
     }
+
 }

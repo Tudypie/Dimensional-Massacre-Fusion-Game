@@ -772,9 +772,9 @@ GameObject:
   - component: {fileID: 287181353762779422}
   - component: {fileID: 4881933333676706386}
   - component: {fileID: 8690725510733542710}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: ChaserMonster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -828,9 +828,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.7
-  m_Height: 4.03
+  m_Height: 3.34
   m_Direction: 1
-  m_Center: {x: 0, y: 1.69, z: 0.44}
+  m_Center: {x: 0, y: 1.74, z: 0.44}
 --- !u!195 &3071774500654282590
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -871,7 +871,6 @@ MonoBehaviour:
   attackDamage: 25
   attackRange: 3
   dropPickupChance: 4
-  canAttack: 1
   monsterCollider: {fileID: 5999527124296078577}
   damageSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
   deathSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
