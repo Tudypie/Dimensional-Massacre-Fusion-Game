@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RespawnManager : MonoBehaviour
 {   
-    [SerializeField] private Animator blackImageAnimator;
+    [SerializeField] private Animator blackImageAnim;
     private GameObject[] spawnpoints;
     private List<Transform> reachedSpawnpoints = new List<Transform>();
     private Transform playerTransform;
@@ -22,7 +22,6 @@ public class RespawnManager : MonoBehaviour
     private void Start()
     {   
         spawnpoints = GameObject.FindGameObjectsWithTag("Spawnpoint");
-    
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -39,7 +38,7 @@ public class RespawnManager : MonoBehaviour
 
     private IEnumerator RespawnSequence()
     {
-        blackImageAnimator.Play("FadeInAndOut");
+        blackImageAnim.Play("FadeInAndOut");
         yield return new WaitForSeconds(1f);
 
         if (reachedSpawnpoints.Count > 0)

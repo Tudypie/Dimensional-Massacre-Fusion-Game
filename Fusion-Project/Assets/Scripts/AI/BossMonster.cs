@@ -34,7 +34,7 @@ public class BossMonster : MonoBehaviour
     //References
 
     [SerializeField] private MeshCollider meshCollider;
-    [SerializeField] private RandomSpawn enemySpawner;
+    [SerializeField] private EnemySpawner enemySpawner;
     private Transform playerTransform;
 
     private Camera mainCamera;
@@ -173,7 +173,7 @@ public class BossMonster : MonoBehaviour
 
         anim.Play("Death");
 
-        Killcount.Instance.AddKill();
+        PlayerStats.Instance.AddKill();
     }
 
     private void OnTriggerEnter(Collider other)

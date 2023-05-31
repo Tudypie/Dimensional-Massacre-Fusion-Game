@@ -141,7 +141,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8288676085436515373}
   - component: {fileID: 1850130546539650712}
-  - component: {fileID: 960343823479232784}
   m_Layer: 0
   m_Name: paint:Mesh
   m_TagString: Untagged
@@ -240,20 +239,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.021581534, y: -0.0017072298, z: -0.025873944}
     m_Extent: {x: 0.055789288, y: 0.05500881, z: 0.056733243}
   m_DirtyAABB: 0
---- !u!64 &960343823479232784
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 960343823479232785}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8595177234315786522, guid: 9a20d66b5170341468421b18249cf3d0, type: 3}
 --- !u!1 &2493611216295894275
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,11 +593,11 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6061488060013631355}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.07
-  m_Center: {x: 0, y: 0.03, z: 0}
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0.04, z: 0}
 --- !u!195 &6061488060013631352
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -651,8 +636,11 @@ MonoBehaviour:
   chaseDistance: 20
   attackDelay: 0.6
   attackDamage: 20
+  attackRange: 3
   dropPickupChance: 5
-  meshCollider: {fileID: 960343823479232784}
+  monsterCollider: {fileID: 4330076184807192880}
+  damageSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
+  deathSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
 --- !u!114 &6061488060013630599
 MonoBehaviour:
   m_ObjectHideFlags: 0

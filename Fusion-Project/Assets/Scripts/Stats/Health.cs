@@ -11,13 +11,14 @@ public class Health : MonoBehaviour
     [SerializeField] public float currentHp;
     [SerializeField] private UnityEvent OnTakeDamage;
     [SerializeField] private UnityEvent OnDie;
+
+    [Header("ONLY FOR PLAYER")]
     [SerializeField] private TMP_Text hpText;
     [SerializeField] private Image bloodImage;
 
     private void Start()
     {
-        if(PlayerPrefs.GetFloat("Health") != 0 && gameObject.tag == "Player")
-            currentHp = PlayerPrefs.GetFloat("Health");
+        currentHp = PlayerPrefs.GetFloat("Health");
     }
 
     private void Update()
@@ -48,6 +49,7 @@ public class Health : MonoBehaviour
         OnTakeDamage?.Invoke();
         currentHp = Mathf.Clamp(currentHp - damage, 0, totalHp);
         Debug.Log(gameObject.name + " took " + damage + " damage");
+        
         if (currentHp <= 0)
         {
             isDead = true;
@@ -57,6 +59,7 @@ public class Health : MonoBehaviour
                 return;
             
             AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.playerDie);
+            PlayerStats.Instance.AddDeath();
             SceneLoader.Instance.RestartScene(4f);
             
         }

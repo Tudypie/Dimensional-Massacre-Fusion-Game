@@ -9,14 +9,13 @@ public class Shield : MonoBehaviour
     public float shieldMaxHealth = 400f;
     public float shieldHealth = 100f;
 
+    [Header("ONLY FOR PLAYER")]
     [SerializeField] private TMP_Text shieldText;
 
     private void Start()
-    {   
-        if(PlayerPrefs.GetFloat("Shield") != 0 && gameObject.tag == "Player")
-            shieldHealth = PlayerPrefs.GetFloat("Shield");
+    {
+        shieldHealth = PlayerPrefs.GetFloat("Shield");
     }
-
     private void Update()
     {          
         if(shieldText != null)
@@ -33,9 +32,5 @@ public class Shield : MonoBehaviour
         shieldHealth = Mathf.Clamp(shieldHealth + amount, 0, shieldMaxHealth);
     }
 
-    public void SaveShieldAmount()
-    {
-        PlayerPrefs.SetFloat("Shield", shieldHealth);
-    }
     
 }

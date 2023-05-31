@@ -7,13 +7,13 @@ public class Bullets : MonoBehaviour
 {
     public int bullets = 30;
     public int maxBullets = 999;
+
+    [Header("ONLY FOR PLAYER")]
     public TMP_Text bulletsText;
 
     void Start()
     {
-        if(PlayerPrefs.GetInt("Bullets") != 0 && gameObject.tag == "Player")
-            bullets = PlayerPrefs.GetInt("Bullets");
-
+        bullets = PlayerPrefs.GetInt("Bullets");
         bulletsText.text = bullets.ToString();
     }
 
@@ -29,10 +29,5 @@ public class Bullets : MonoBehaviour
         if (bullets > maxBullets)
             bullets = maxBullets;
         bulletsText.text = bullets.ToString();
-    }
-
-    public void SaveBulletsAmount()
-    {
-        PlayerPrefs.SetInt("Bullets", bullets);
     }
 }

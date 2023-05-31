@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5658837062684548812}
   - component: {fileID: 5658837062684548815}
   - component: {fileID: 3093405665388335007}
-  - component: {fileID: 4157350264129617538}
+  - component: {fileID: -8408959691995381652}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -28,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207192890036158921}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -44.65, y: 2.18115, z: 14.614342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3467566131073493970
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -113,24 +113,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupType: 0
   amount: 25
---- !u!95 &4157350264129617538
-Animator:
-  serializedVersion: 5
+--- !u!111 &-8408959691995381652
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207192890036158921}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 976a48fc9f3352e46a0632adc29d4c06, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 7e25a5087c490be478a866d037f8cc4a, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 7e25a5087c490be478a866d037f8cc4a, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

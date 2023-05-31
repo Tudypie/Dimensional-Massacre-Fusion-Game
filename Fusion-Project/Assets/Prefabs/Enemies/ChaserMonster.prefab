@@ -104,7 +104,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2919223986762097918}
   - component: {fileID: 5481232663250488885}
-  - component: {fileID: 7564160731352112046}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -213,20 +212,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0020014215, y: -0.0020025782, z: 0.01059138}
     m_Extent: {x: 0.056630097, y: 0.10966919, z: 0.058679618}
   m_DirtyAABB: 0
---- !u!64 &7564160731352112046
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414853815629586940}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1562275218897716241, guid: 4cba0c9d76f634c409e096db3aacd46d, type: 3}
 --- !u!1 &505755312037933183
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +825,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4745700178425691017}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.7
   m_Height: 4.03
@@ -883,9 +868,13 @@ MonoBehaviour:
   state: 0
   chaseDistance: 25
   attackDelay: 0.6
-  attackDamage: 30
+  attackDamage: 25
+  attackRange: 3
   dropPickupChance: 4
-  meshCollider: {fileID: 7564160731352112046}
+  canAttack: 1
+  monsterCollider: {fileID: 5999527124296078577}
+  damageSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
+  deathSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
 --- !u!114 &4881933333676706386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,8 +887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3e3577138e64a488ab0975ae99eefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHp: 200
-  currentHp: 150
+  totalHp: 160
+  currentHp: 160
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls:

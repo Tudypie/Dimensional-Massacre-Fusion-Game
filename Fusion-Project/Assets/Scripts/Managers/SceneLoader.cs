@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {   
-    public bool currentSceneIsLoadingScene;
+    public bool isLoaderScene;
     public bool webGLBuild;
     public static int sceneToLoad;
 
@@ -21,7 +21,7 @@ public class SceneLoader : MonoBehaviour
     
     private void Start()
     {   
-        if(currentSceneIsLoadingScene)
+        if(isLoaderScene)
             StartCoroutine(LoadAsyncScene());
     }
 
@@ -47,7 +47,7 @@ public class SceneLoader : MonoBehaviour
             
         sceneToLoad = index;
         SceneManager.LoadScene("Loading");
-    }   
+    }      
 
     public void RestartScene()
     {

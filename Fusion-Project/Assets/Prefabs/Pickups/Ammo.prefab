@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 13301485490545729}
   - component: {fileID: 13301485490545734}
   - component: {fileID: 8321758173825993029}
-  - component: {fileID: 5295380019190950824}
+  - component: {fileID: 106895546433555723}
   m_Layer: 0
   m_Name: Ammo
   m_TagString: Untagged
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13301485490545728}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -46.70017, y: 2.3728685, z: 14.639965}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5512412, y: 2.551242, z: 2.5512412}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 1304371825485075174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &13301485490545734
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -64,27 +64,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupType: 2
   amount: 6
---- !u!95 &5295380019190950824
-Animator:
-  serializedVersion: 5
+--- !u!111 &106895546433555723
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13301485490545728}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b93a086da2f2cc245905d266e8e0684a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 7e25a5087c490be478a866d037f8cc4a, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 7e25a5087c490be478a866d037f8cc4a, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1935693757413707961
 GameObject:
   m_ObjectHideFlags: 0

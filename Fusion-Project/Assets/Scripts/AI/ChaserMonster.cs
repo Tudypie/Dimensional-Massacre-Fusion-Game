@@ -20,14 +20,15 @@ public class ChaserMonster : MonoBehaviour
     [SerializeField] public float chaseDistance = 20f;
     [SerializeField] private float attackDelay = 1f;
     [SerializeField] private float attackDamage = 15f;
+    [SerializeField] private float attackRange = 3f;
     [SerializeField] public int dropPickupChance = 5;
-    private bool canAttack = true;
+    [SerializeField] private bool canAttack = true;
 
-    //References
-
-    [SerializeField] private MeshCollider meshCollider;
+    [Header("References")]
+    [SerializeField] private Collider monsterCollider;
+    [SerializeField] private AudioClip damageSound;
+    [SerializeField] private AudioClip deathSound;
     private Transform playerTransform;
-
     private Camera mainCamera;
     private NavMeshAgent agent;
     private Animator anim;
@@ -42,7 +43,7 @@ public class ChaserMonster : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   
         if(state == State.Dead)
             return;
 
@@ -54,9 +55,12 @@ public class ChaserMonster : MonoBehaviour
             case State.Attack:
                 Attack();
                 break;
+            case State.Idle:
+                Idle();
+                break;
         }
 
-        if(state == State.Chase || state == State.Attack)
+        if(state == State.Attack)
             return;
 
         if (Vector3.Distance(transform.position, playerTransform.position) > chaseDistance)
@@ -71,21 +75,18 @@ public class ChaserMonster : MonoBehaviour
         agent.SetDestination(playerTransform.position);
         anim.SetBool("Chase", true);
 
-        if(Vector3.Distance(transform.position, playerTransform.position) <= agent.stoppingDistance)
+        if(Vector3.Distance(transform.position, playerTransform.position) <= attackRange)
         {
+            Debug.Log("Player got in attack range of " + gameObject.name);
             state = State.Attack;
-        }
-
-        if(Vector3.Distance(transform.position, playerTransform.position) > chaseDistance)
-        {
-            state = State.Idle;
         }
     }
 
     private void Attack()
     {
-        if(Vector3.Distance(transform.position, playerTransform.position) > agent.stoppingDistance)
+        if(Vector3.Distance(transform.position, playerTransform.position) > attackRange)
         {
+            Debug.Log("Player got out of attack range of" + gameObject.name);
             state = State.Chase;
         }
 
@@ -93,18 +94,27 @@ public class ChaserMonster : MonoBehaviour
             return;
 
         canAttack = false;
+
         Debug.Log(gameObject.name + " damaged player for " + attackDamage + " damage");
+
         playerTransform.gameObject.GetComponent<Health>().TakeDamage(attackDamage);
+
         Invoke("AttackDelay", attackDelay);
     }
 
     private void AttackDelay() => canAttack = true;
 
+    private void Idle()
+    {
+        agent.SetDestination(transform.position);
+        anim.SetBool("Chase", false);
+    }
+
     public void TakeDamage()
     {
         mainCamera.GetComponent<CameraShake>().Shake(0.8f);
 
-        audioSource.PlayOneShot(AudioPlayer.Instance.monsterHit);
+        audioSource.PlayOneShot(damageSound);
     }
 
     public void Die()
@@ -113,47 +123,20 @@ public class ChaserMonster : MonoBehaviour
 
         agent.SetDestination(transform.position);
         anim.SetBool("Chase", false);
+        anim.Play("Death");
 
         audioSource.Stop();
-        audioSource.PlayOneShot(AudioPlayer.Instance.monsterDeath);
+        audioSource.PlayOneShot(deathSound);
 
-        meshCollider.enabled = false;
+        monsterCollider.enabled = false;
 
-        anim.Play("Death");
         Destroy(gameObject, 1.5f);
 
         int random = Random.Range(0, dropPickupChance);
         if(random == 0)
             SpawnPickupable.Instance.Spawn(transform);
 
-        Killcount.Instance.AddKill();
+        PlayerStats.Instance.AddKill();
     }
-
-    private void OnTriggerEnter(Collider other)
-    {   
-        if(state == State.Dead)
-            return;
-
-        if (other.tag == "Player")
-        {   
-            state = State.Attack;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if(state == State.Dead)
-            return;
-
-        if (other.tag == "Player")
-        {
-            state = State.Chase;
-        }
-    }
-
-
-
-
-
 
 }
