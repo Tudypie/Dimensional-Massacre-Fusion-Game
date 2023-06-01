@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2500880380997041834}
   - component: {fileID: 4283149011701972336}
   - component: {fileID: 4766605745619698365}
-  - component: {fileID: 4339832473207831425}
   - component: {fileID: 7822105687067477419}
-  m_Layer: 0
+  - component: {fileID: 6018299047843632891}
+  - component: {fileID: 4339832473207831425}
+  m_Layer: 7
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,20 +100,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.00951709
   m_Center: {x: 2.3283067e-10, y: 0.0010967834, z: 0}
---- !u!114 &4339832473207831425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830702401723388226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86f2c431cbc3cc94aa19f98870a92c67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupType: 1
-  amount: 25
 --- !u!111 &7822105687067477419
 Animation:
   m_ObjectHideFlags: 0
@@ -129,3 +116,31 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &6018299047843632891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830702401723388226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366dbd8ed7f77574fab24c92d3c08a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: 1
+  timer: 0.7
+--- !u!114 &4339832473207831425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830702401723388226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f2c431cbc3cc94aa19f98870a92c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupType: 1
+  amount: 25

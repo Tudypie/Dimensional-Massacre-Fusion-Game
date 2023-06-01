@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 4720811559502449003}
-  playerDie: {fileID: 8300000, guid: 6d962fc08afae4445ba8bac4a8c60073, type: 3}
+  playerDie: {fileID: 8300000, guid: 601ca12c3916b0a468b2787e0977b309, type: 3}
   shotgunShot: {fileID: 8300000, guid: 88bde097e432b3b47adf3a58fc664452, type: 3}
   shotgunEquip: {fileID: 8300000, guid: fbd3d54eb31e6314189dbf95828d2196, type: 3}
   monsterHit: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}

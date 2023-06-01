@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3467566131073493970}
   - component: {fileID: 5658837062684548812}
   - component: {fileID: 5658837062684548815}
-  - component: {fileID: 3093405665388335007}
   - component: {fileID: -8408959691995381652}
-  m_Layer: 0
+  - component: {fileID: -5177231193759834467}
+  - component: {fileID: 3093405665388335007}
+  m_Layer: 7
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,22 +98,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.37062
+  m_Radius: 0.25
   m_Center: {x: -0.000000033527623, y: 0.00000021606684, z: 0.00000012665991}
---- !u!114 &3093405665388335007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207192890036158921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86f2c431cbc3cc94aa19f98870a92c67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupType: 0
-  amount: 25
 --- !u!111 &-8408959691995381652
 Animation:
   m_ObjectHideFlags: 0
@@ -129,3 +116,31 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &-5177231193759834467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207192890036158921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366dbd8ed7f77574fab24c92d3c08a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: 1
+  timer: 0.7
+--- !u!114 &3093405665388335007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207192890036158921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f2c431cbc3cc94aa19f98870a92c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupType: 0
+  amount: 25

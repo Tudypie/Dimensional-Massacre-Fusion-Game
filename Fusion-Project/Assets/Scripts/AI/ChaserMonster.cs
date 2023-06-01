@@ -26,6 +26,7 @@ public class ChaserMonster : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Collider monsterCollider;
+    [SerializeField] private Collider twoDMonsterCollider;
     [SerializeField] private AudioClip damageSound;
     [SerializeField] private AudioClip deathSound;
     private Transform playerTransform;
@@ -47,6 +48,16 @@ public class ChaserMonster : MonoBehaviour
         if(state == State.Dead)
             return;
 
+        if(Camera.main.orthographic)
+        {
+            twoDMonsterCollider.enabled = true;
+            monsterCollider.enabled = false;
+        } else {
+            twoDMonsterCollider.enabled = false;
+            monsterCollider.enabled = true;
+        }
+           
+
         switch(state)
         {
             case State.Chase:
@@ -60,7 +71,7 @@ public class ChaserMonster : MonoBehaviour
                 break;
         }
 
-        if(state == State.Attack)
+        if(state == State.Attack || state == State.Chase)
             return;
 
         if (Vector3.Distance(transform.position, playerTransform.position) > chaseDistance)
@@ -80,6 +91,8 @@ public class ChaserMonster : MonoBehaviour
             Debug.Log("Player got in attack range of " + gameObject.name);
             state = State.Attack;
         }
+        else if (Vector3.Distance(transform.position, playerTransform.position) > chaseDistance*1.6f)
+            state = State.Idle;
     }
 
     private void Attack()
@@ -115,6 +128,8 @@ public class ChaserMonster : MonoBehaviour
         mainCamera.GetComponent<CameraShake>().Shake(0.8f);
 
         audioSource.PlayOneShot(damageSound);
+
+        state = State.Chase;
     }
 
     public void Die()

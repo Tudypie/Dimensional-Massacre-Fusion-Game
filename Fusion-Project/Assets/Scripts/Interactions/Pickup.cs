@@ -13,22 +13,22 @@ public class Pickup : MonoBehaviour
 
     [SerializeField] private PickupType pickupType;
     [SerializeField] private float amount;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             switch (pickupType)
             {
                 case PickupType.Health:
-                    other.GetComponent<Health>().GetHealth(amount);
+                    other.gameObject.GetComponent<Health>().GetHealth(amount);
                     AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.healthPickup);
                     break;
                 case PickupType.Shield:
-                    other.GetComponent<Shield>().GetShield(amount);
+                    other.gameObject.GetComponent<Shield>().GetShield(amount);
                     AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.healthPickup);
                     break;
                 case PickupType.Ammo:
-                    other.GetComponent<Bullets>().AddBullets((int)amount);     
+                    other.gameObject.GetComponent<Bullets>().AddBullets((int)amount);     
                     AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.ammoPickup);            
                     break;
             }

@@ -23,7 +23,7 @@ public class FinalShotgun : MonoBehaviour
     private List<LineRenderer> activeLasers = new List<LineRenderer>();
     private float laserFadeTimer;
 
-    [Header("Stats")]
+    [Header("Settings")]
     [SerializeField, Space] private bool shotgunEnabled;
     [SerializeField] Vector3 raycastOffset;
     [SerializeField] float range = 15f;
@@ -33,7 +33,8 @@ public class FinalShotgun : MonoBehaviour
     [SerializeField] float bulletsPerShot = 5f;
     [SerializeField] float inaccuracyDistance = 5f;
     [SerializeField, Space] bool shotgunPropulsion;
-    [SerializeField] float propulsionForce = 12f;
+    [SerializeField] float propulsionForce = 100f;
+    [SerializeField] float shootingForce = 100f;
 
     private void Update()
     {   
@@ -96,10 +97,16 @@ public class FinalShotgun : MonoBehaviour
                 {
                     GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
                     Destroy(impact, 0.2f);
+
+                    if(hit.transform.GetComponent<Rigidbody>() != null)
+                        hit.transform.GetComponent<Rigidbody>().AddForceAtPosition(shootingDir * shootingForce, hit.point);
                 }
 
                 if(hit.transform.CompareTag("Enemy") && hit.transform.GetComponent<Health>() != null)
                     hit.transform.GetComponent<Health>().TakeDamage(damage);
+
+                if(hit.transform.parent != null && hit.transform.parent.CompareTag("Enemy") && hit.transform.parent.GetComponent<Health>() != null)
+                    hit.transform.parent.GetComponent<Health>().TakeDamage(damage);
             }
             else {
                 CreateLaser(transform.position + shootingDir * range);
@@ -154,7 +161,7 @@ public class FinalShotgun : MonoBehaviour
     {
         Vector3 launchDirection = -Camera.main.transform.forward;
 
-        playerRigidbody.AddForce(launchDirection * propulsionForce, ForceMode.Impulse);
+        playerRigidbody.AddForce(launchDirection * propulsionForce);
     }
 
     public void EnableShotgun() => shotgunEnabled = true;
