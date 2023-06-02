@@ -87,30 +87,36 @@ public class FinalShotgun : MonoBehaviour
             ApplyPropulsion();
 
         for(int i = 0; i < bulletsPerShot; i++)
+            ShootRaycast();
+    }
+
+    public void ShootRaycast()
+    {
+        RaycastHit hit;
+        Vector3 shootingDir = GetShootingDirection();
+        int excludeLayerMask = ~(1 << LayerMask.NameToLayer("Trigger"));
+        if(Physics.Raycast(transform.position + raycastOffset, shootingDir, out hit, range, excludeLayerMask))
+        {    
+            CreateLaser(hit.point);
+
+            if(hit.transform.CompareTag("Environment"))
+            {
+                GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impact, 0.2f);
+            }
+
+            if(hit.transform.GetComponent<Rigidbody>() != null)
+                hit.transform.GetComponent<Rigidbody>().AddForceAtPosition(shootingDir * shootingForce, hit.point);
+
+            if(hit.transform.GetComponent<Health>() != null && hit.transform.tag != "Player")
+                hit.transform.GetComponent<Health>().TakeDamage(damage);
+
+            if(hit.transform.parent != null && hit.transform.parent.CompareTag("Enemy") && hit.transform.parent.GetComponent<Health>() != null)
+                hit.transform.parent.GetComponent<Health>().TakeDamage(damage);
+        }
+        else 
         {
-            RaycastHit hit;
-            Vector3 shootingDir = GetShootingDirection();
-            if(Physics.Raycast(transform.position + raycastOffset, shootingDir, out hit, range))
-            {    
-                CreateLaser(hit.point);
-                if(hit.transform.CompareTag("Environment"))
-                {
-                    GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                    Destroy(impact, 0.2f);
-
-                    if(hit.transform.GetComponent<Rigidbody>() != null)
-                        hit.transform.GetComponent<Rigidbody>().AddForceAtPosition(shootingDir * shootingForce, hit.point);
-                }
-
-                if(hit.transform.CompareTag("Enemy") && hit.transform.GetComponent<Health>() != null)
-                    hit.transform.GetComponent<Health>().TakeDamage(damage);
-
-                if(hit.transform.parent != null && hit.transform.parent.CompareTag("Enemy") && hit.transform.parent.GetComponent<Health>() != null)
-                    hit.transform.parent.GetComponent<Health>().TakeDamage(damage);
-            }
-            else {
-                CreateLaser(transform.position + shootingDir * range);
-            }
+            CreateLaser(transform.position + shootingDir * range);
         }
     }
 

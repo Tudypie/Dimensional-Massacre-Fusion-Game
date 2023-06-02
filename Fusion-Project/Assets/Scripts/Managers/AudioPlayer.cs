@@ -20,6 +20,10 @@ public class AudioPlayer : MonoBehaviour
     [Header("Pickups")]
     public AudioClip healthPickup;
     public AudioClip ammoPickup;
+
+    [Header("Miscellaneous")]
+    public AudioClip airRelease;
+    public AudioClip explosion;
     
 
     public static AudioPlayer Instance { get; private set; }
@@ -36,11 +40,19 @@ public class AudioPlayer : MonoBehaviour
     {
         audioSource.PlayOneShot(clip);
     }
-
     public void PlayAudio(AudioClip clip, float volume)
     {
         audioSource.PlayOneShot(clip, volume);
     }
+    public void PlayAudio(AudioClip clip, Transform transform)
+    {
+        AudioSource.PlayClipAtPoint(clip, transform.position);
+    }
+    public void PlayAudio(AudioClip clip, Transform transform, float volume)
+    {
+        AudioSource.PlayClipAtPoint(clip, transform.position, volume);
+    }
+
 
     public void StopAudio()
     {

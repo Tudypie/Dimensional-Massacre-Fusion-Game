@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +7,8 @@ public class StayOnGround : MonoBehaviour
     [SerializeField] float yOffset = 1f;
     [SerializeField] float startTimer = 1.3f;
     private float timer = 0f;
+
+    Component component;
     private void Update()
     {   
         if(timer > 0f)
@@ -30,16 +31,46 @@ public class StayOnGround : MonoBehaviour
 
             if(GetComponent<NavMeshAgent>() != null)
             {
-                GetComponent<NavMeshAgent>().enabled = false;
-                Invoke("ActivateNavMeshAgent", startTimer);
+                component = GetComponent<NavMeshAgent>();
+                DisableComponent();
+                Invoke("ActivateComponent", startTimer);
+            }
+
+            if(GetComponent<Rigidbody>() != null)
+            {
+                DisableRigidbody();
+                Invoke("ActivateRigidbody", startTimer);
             }
         }
 
     }
 
-    private void ActivateNavMeshAgent()
+    private void ActivateComponent()
     {
-        if(GetComponent<NavMeshAgent>() != null)
-            GetComponent<NavMeshAgent>().enabled = true;
+        PropertyInfo enabledProperty = component.GetType().GetProperty("enabled");
+        if (enabledProperty != null && enabledProperty.PropertyType == typeof(bool))
+        {
+            enabledProperty.SetValue(component, true, null);
+        }
     }
+
+    private void DisableComponent()
+    {
+        PropertyInfo enabledProperty = component.GetType().GetProperty("enabled");
+        if (enabledProperty != null && enabledProperty.PropertyType == typeof(bool))
+        {
+            enabledProperty.SetValue(component, false, null);
+        }
+    }
+
+    private void ActivateRigidbody()
+    {
+        GetComponent<Rigidbody>().isKinematic = false;
+    }
+
+    private void DisableRigidbody()
+    {
+        GetComponent<Rigidbody>().isKinematic = true;
+    }
+
 }
