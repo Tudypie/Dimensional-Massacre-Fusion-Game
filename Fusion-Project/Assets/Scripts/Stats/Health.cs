@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     [Header("ONLY FOR PLAYER")]
     [SerializeField] private TMP_Text hpText;
     [SerializeField] private Image bloodImage;
+    [SerializeField] private Image healthBar;
 
     private void Start()
     {
@@ -25,6 +26,9 @@ public class Health : MonoBehaviour
     {       
         if(hpText != null)
             hpText.text = currentHp.ToString("F0");
+
+        if(healthBar != null)
+            healthBar.fillAmount = currentHp / totalHp;
 
         if(bloodImage != null && currentHp < 100f)
             bloodImage.color = new Color(1, 1, 1, Mathf.Min(1 - (currentHp / 100f), 0.7f));

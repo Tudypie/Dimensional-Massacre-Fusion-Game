@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Shield : MonoBehaviour
@@ -11,6 +12,7 @@ public class Shield : MonoBehaviour
 
     [Header("ONLY FOR PLAYER")]
     [SerializeField] private TMP_Text shieldText;
+    [SerializeField] private Image shieldBar;
 
     private void Start()
     {
@@ -20,6 +22,9 @@ public class Shield : MonoBehaviour
     {          
         if(shieldText != null)
             shieldText.text = shieldHealth.ToString("F0");
+
+        if(shieldBar != null)
+            shieldBar.fillAmount = shieldHealth / shieldMaxHealth;
     }
 
     public void DamageShield(float damage)

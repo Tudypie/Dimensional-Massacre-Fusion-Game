@@ -772,6 +772,7 @@ GameObject:
   - component: {fileID: 287181353762779422}
   - component: {fileID: 4881933333676706386}
   - component: {fileID: 8690725510733542710}
+  - component: {fileID: -4498467633748410112}
   m_Layer: 9
   m_Name: ChaserMonster
   m_TagString: Enemy
@@ -922,6 +923,7 @@ MonoBehaviour:
         m_CallState: 2
   hpText: {fileID: 0}
   bloodImage: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!82 &8690725510733542710
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1018,6 +1020,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-4498467633748410112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745700178425691017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366dbd8ed7f77574fab24c92d3c08a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: 0
+  startTimer: 1.5
 --- !u!1 &5221188741860278099
 GameObject:
   m_ObjectHideFlags: 0

@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yOffset: 1
-  timer: 0.7
+  startTimer: 1.3
 --- !u!114 &4339832473207831425
 MonoBehaviour:
   m_ObjectHideFlags: 0

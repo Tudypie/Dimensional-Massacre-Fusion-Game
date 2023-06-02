@@ -45,7 +45,7 @@ public class ChaserMonster : MonoBehaviour
 
     private void Update()
     {   
-        if(state == State.Dead)
+        if(state == State.Dead || agent.enabled == false)
             return;
 
         if(Camera.main.orthographic)

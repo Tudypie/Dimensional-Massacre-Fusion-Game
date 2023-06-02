@@ -9,10 +9,12 @@ public class OnEnterTriggerEvent : MonoBehaviour
     [SerializeField] private UnityEvent onExitEvent;
 
     [SerializeField] private bool oneTimeTrigger = true;
+    [SerializeField] private bool stayInTrigger = false;
+    [SerializeField] private LayerMask layerMask;
 
     private void OnTriggerEnter(Collider other)
     {   
-        if(other.gameObject.tag != "Player")
+        if (((1 << other.gameObject.layer) & layerMask.value) == 0)
             return;
         
         onEnterEvent?.Invoke();
@@ -21,9 +23,20 @@ public class OnEnterTriggerEvent : MonoBehaviour
             GetComponent<Collider>().enabled = false;
     }
 
+    private void OnTriggerStay(Collider other)
+    {   
+        if(!stayInTrigger)
+            return;
+
+        if (((1 << other.gameObject.layer) & layerMask.value) == 0)
+            return;
+        
+        onEnterEvent?.Invoke();
+    }
+
     private void OnTriggerExit(Collider other)
     {   
-        if(other.gameObject.tag != "Player")
+        if (((1 << other.gameObject.layer) & layerMask.value) == 0)
             return;
         
         onExitEvent?.Invoke();

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Unity.AI.Navigation;
 
 public class SwitchPerspective : MonoBehaviour
 {       
@@ -12,7 +13,7 @@ public class SwitchPerspective : MonoBehaviour
     [SerializeField] private Transform firstPersonCameraPoint;
     [SerializeField] private Transform topDownCameraPoint;
     [SerializeField] private Transform topDownParent;
-    [SerializeField] List<Transform> surfacesTransform = new List<Transform>();
+    [SerializeField] NavMeshSurface[] surfacesTransform;
     private Transform targetTransform;
 
     [Header("Top Down Offset")]
@@ -52,22 +53,18 @@ public class SwitchPerspective : MonoBehaviour
 
     private void Start()
     {
+        surfacesTransform = FindObjectsOfType<NavMeshSurface>();
         mainCamera = Camera.main;
         playerRigidbody = playerTransform.GetComponent<Rigidbody>();
-
-        for(int i = 0; i < NavMeshBaker.Instance.surfaces.Length; i++)
-        {
-            surfacesTransform.Add(NavMeshBaker.Instance.surfaces[i].transform);
-        }
     }
 
     private void Update()
     {
         if(lerpTransitionInProgress)
         {
-            for(int i = 0; i < surfacesTransform.Count; i++)
+            for(int i = 0; i < surfacesTransform.Length; i++)
             {
-                surfacesTransform[i].localScale = Vector3.Lerp(surfacesTransform[i].localScale, 
+                surfacesTransform[i].transform.localScale = Vector3.Lerp(surfacesTransform[i].transform.localScale, 
                 isTopDown ? new Vector3(1, 0.0001f, 1) : new Vector3(1, 1, 1),
                 Time.deltaTime * lerpTransitionSpeed);
             }
@@ -177,7 +174,8 @@ public class SwitchPerspective : MonoBehaviour
 
         lerpTransitionInProgress = false;
         StopAllCoroutines();
-        NavMeshBaker.Instance.BakeNavigation();
+        
+        NavMeshBaker.Instance.BakeNavigation(surfacesTransform);
 
         RaycastHit hit;
         Debug.DrawRay(new Vector3(topDownCameraPoint.position.x, 1000f, topDownCameraPoint.position.z), Vector3.down * 1000f, Color.blue, 5f);
@@ -185,15 +183,6 @@ public class SwitchPerspective : MonoBehaviour
         Vector3.down, out hit, Mathf.Infinity, groundLayer))
         {   
             playerTransform.position = new Vector3(playerTransform.position.x, hit.point.y + 1f, playerTransform.position.z);
-        }
-    }
-
-    private IEnumerator BakeNavigationOnSwitch()
-    {
-        while(lerpTransitionInProgress)
-        {
-            NavMeshBaker.Instance.BakeNavigation();
-            yield return new WaitForSeconds(0.1f);
         }
     }
 
