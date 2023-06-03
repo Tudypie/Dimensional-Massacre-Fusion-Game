@@ -6,7 +6,8 @@ public class FinalShotgun : MonoBehaviour
 {
 
     [Header("References")]
-    [SerializeField, Space] private Bullets bullets;
+    [SerializeField, Space] private LayerMask shootingRaycastLayers;
+    [SerializeField] private Bullets bullets;
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] Animator anim;
     [SerializeField] private MeshRenderer mr;
@@ -94,8 +95,8 @@ public class FinalShotgun : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 shootingDir = GetShootingDirection();
-        int excludeLayerMask = ~(1 << LayerMask.NameToLayer("Trigger"));
-        if(Physics.Raycast(transform.position + raycastOffset, shootingDir, out hit, range, excludeLayerMask))
+
+        if(Physics.Raycast(transform.position + raycastOffset, shootingDir, out hit, range, shootingRaycastLayers))
         {    
             CreateLaser(hit.point);
 
@@ -110,9 +111,6 @@ public class FinalShotgun : MonoBehaviour
 
             if(hit.transform.GetComponent<Health>() != null && hit.transform.tag != "Player")
                 hit.transform.GetComponent<Health>().TakeDamage(damage);
-
-            if(hit.transform.parent != null && hit.transform.parent.CompareTag("Enemy") && hit.transform.parent.GetComponent<Health>() != null)
-                hit.transform.parent.GetComponent<Health>().TakeDamage(damage);
         }
         else 
         {

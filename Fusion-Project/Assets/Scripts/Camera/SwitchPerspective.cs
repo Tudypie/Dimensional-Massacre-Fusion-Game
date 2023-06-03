@@ -89,6 +89,17 @@ public class SwitchPerspective : MonoBehaviour
         {   
             isTopDown = !isTopDown;
             mainCamera.orthographic = isTopDown;
+            
+            if (isTopDown)
+            {   
+                playerRigidbody.constraints |= RigidbodyConstraints.FreezeRotationY;
+                onTopDownSwitch.Invoke();
+            }
+            else
+            {
+                playerRigidbody.constraints &= ~RigidbodyConstraints.FreezeRotationY;
+                onFirstPersonSwitch.Invoke();
+            }
 
             initialTopDownRotation = Quaternion.Euler(0f, RoundToNearestMultipleOf90(playerTransform.rotation.eulerAngles.y), 0f);
             
@@ -100,16 +111,7 @@ public class SwitchPerspective : MonoBehaviour
             switchTimer = lerpTransitionDuration;
             Invoke("EndLerpingTransition", lerpTransitionDuration);
 
-            if (isTopDown)
-            {   
-                playerRigidbody.constraints &= ~RigidbodyConstraints.FreezeRotationY;
-                onTopDownSwitch.Invoke();
-            }
-            else
-            {
-                playerRigidbody.constraints |= RigidbodyConstraints.FreezeRotationY;
-                onFirstPersonSwitch.Invoke();
-            }
+
         }
 
         if(!isTopDown)
@@ -175,7 +177,7 @@ public class SwitchPerspective : MonoBehaviour
         lerpTransitionInProgress = false;
         StopAllCoroutines();
         
-        NavMeshBaker.Instance.BakeNavigation(surfacesTransform);
+        NavMeshBaker.Instance.BakeNavigation();
 
         RaycastHit hit;
         Debug.DrawRay(new Vector3(topDownCameraPoint.position.x, 1000f, topDownCameraPoint.position.z), Vector3.down * 1000f, Color.blue, 5f);

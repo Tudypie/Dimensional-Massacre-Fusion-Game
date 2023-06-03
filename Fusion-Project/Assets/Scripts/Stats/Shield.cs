@@ -16,7 +16,8 @@ public class Shield : MonoBehaviour
 
     private void Start()
     {
-        shieldHealth = PlayerPrefs.GetFloat("Shield");
+        if(gameObject.tag == "Player")
+            shieldHealth = PlayerPrefs.GetFloat("Shield");
     }
     private void Update()
     {          

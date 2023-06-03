@@ -152,7 +152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &436272718
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1878,7 +1878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52151d29a12f02f4d87814ad5e5a72a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeMagnitude: 0.4
+  shakeMagnitude: 0.8
   shakeTimer: 0
 --- !u!114 &4862139249812016136
 MonoBehaviour:
@@ -2242,6 +2242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119077bd418e55f49be95ad8003dcae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingRaycastLayers:
+    serializedVersion: 2
+    m_Bits: 3649
   bullets: {fileID: 8662125012796368605}
   playerRigidbody: {fileID: 24391196384946688}
   anim: {fileID: 1538158166881475587}
@@ -6656,6 +6659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119077bd418e55f49be95ad8003dcae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingRaycastLayers:
+    serializedVersion: 2
+    m_Bits: 3649
   bullets: {fileID: 8662125012796368605}
   playerRigidbody: {fileID: 24391196384946688}
   anim: {fileID: 8593909414260447927}

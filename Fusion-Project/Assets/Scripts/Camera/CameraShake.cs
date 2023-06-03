@@ -7,6 +7,13 @@ public class CameraShake : MonoBehaviour
     [SerializeField] private float shakeTimer;
     private Vector3 initialPosition;
 
+    public static CameraShake Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
         initialPosition = transform.localPosition;

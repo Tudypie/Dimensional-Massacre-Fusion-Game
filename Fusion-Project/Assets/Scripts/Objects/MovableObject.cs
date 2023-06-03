@@ -34,7 +34,7 @@ public class MovableObject : MonoBehaviour
         if(Vector3.Distance(transform.position, endPosition) < 0.2f && isMovingForward)
         {   
             hasReachedEndPosition = true;
-            NavMeshBaker.Instance.BakeNavigation(surface);
+            NavMeshBaker.Instance.BakeNavigation();
             return;
         }
         else if(Vector3.Distance(transform.position, startPosition) < 0.2f && !isMovingForward)

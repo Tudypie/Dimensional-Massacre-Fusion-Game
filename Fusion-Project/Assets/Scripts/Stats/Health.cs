@@ -19,7 +19,8 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        currentHp = PlayerPrefs.GetFloat("Health");
+        if(gameObject.tag == "Player")
+            currentHp = PlayerPrefs.GetFloat("Health");
     }
 
     private void Update()

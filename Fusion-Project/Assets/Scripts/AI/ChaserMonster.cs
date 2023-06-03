@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 
 public class ChaserMonster : MonoBehaviour
 {   
@@ -12,23 +9,29 @@ public class ChaserMonster : MonoBehaviour
         Idle,
         Chase,
         Attack,
+        Stunned,
         Dead
     }
 
     [SerializeField] private State state;
 
+    [Header("Monster Settings")]
+
     [SerializeField] public float chaseDistance = 20f;
     [SerializeField] private float attackDelay = 1f;
     [SerializeField] private float attackDamage = 15f;
     [SerializeField] private float attackRange = 3f;
+    [SerializeField] private float hitStunDuration = 0.5f;
     [SerializeField] public int dropPickupChance = 5;
+    [SerializeField] private float colliderHeightIncrease = 2f;
     private bool canAttack = true;
 
-    [Header("References")]
-    [SerializeField] private Collider monsterCollider;
-    [SerializeField] private Collider twoDMonsterCollider;
+    [Header("Audio")]
     [SerializeField] private AudioClip damageSound;
     [SerializeField] private AudioClip deathSound;
+
+    private CapsuleCollider monsterCollider;
+    private float initialColliderHeight;
     private Transform playerTransform;
     private Camera mainCamera;
     private NavMeshAgent agent;
@@ -37,6 +40,8 @@ public class ChaserMonster : MonoBehaviour
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        monsterCollider = GetComponent<CapsuleCollider>();
+        initialColliderHeight = monsterCollider.height;
         mainCamera = Camera.main;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
@@ -45,18 +50,13 @@ public class ChaserMonster : MonoBehaviour
 
     private void Update()
     {   
-        if(state == State.Dead || agent.enabled == false)
+        if(state == State.Dead || state == State.Stunned || agent.enabled == false)
             return;
 
         if(Camera.main.orthographic)
-        {
-            twoDMonsterCollider.enabled = true;
-            monsterCollider.enabled = false;
-        } else {
-            twoDMonsterCollider.enabled = false;
-            monsterCollider.enabled = true;
-        }
-           
+            monsterCollider.height = colliderHeightIncrease;
+        else
+            monsterCollider.height = initialColliderHeight;   
 
         switch(state)
         {
@@ -86,6 +86,8 @@ public class ChaserMonster : MonoBehaviour
         agent.SetDestination(playerTransform.position);
         anim.SetBool("Chase", true);
 
+        MusicController.Instance.playerIsChased = true;
+
         if(Vector3.Distance(transform.position, playerTransform.position) <= attackRange)
         {
             Debug.Log("Player got in attack range of " + gameObject.name);
@@ -97,9 +99,12 @@ public class ChaserMonster : MonoBehaviour
 
     private void Attack()
     {
+        anim.SetBool("Attack", true);
+
         if(Vector3.Distance(transform.position, playerTransform.position) > attackRange)
         {
             Debug.Log("Player got out of attack range of" + gameObject.name);
+            anim.SetBool("Attack", false);
             state = State.Chase;
         }
 
@@ -125,10 +130,20 @@ public class ChaserMonster : MonoBehaviour
 
     public void TakeDamage()
     {
+        agent.SetDestination(transform.position);
+        anim.SetBool("TakeDamage", true);
         mainCamera.GetComponent<CameraShake>().Shake(0.8f);
-
         audioSource.PlayOneShot(damageSound);
+        state = State.Stunned;
+        Invoke("EndDamageStun", hitStunDuration);
+    }
 
+    private void EndDamageStun()
+    {   
+        if(state == State.Dead)
+            return;
+
+        anim.SetBool("TakeDamage", false);
         state = State.Chase;
     }
 
@@ -144,6 +159,8 @@ public class ChaserMonster : MonoBehaviour
         audioSource.PlayOneShot(deathSound);
 
         monsterCollider.enabled = false;
+
+        MusicController.Instance.playerIsChased = false;
 
         Destroy(gameObject, 1.5f);
 

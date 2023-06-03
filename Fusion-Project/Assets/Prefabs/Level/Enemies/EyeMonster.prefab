@@ -1,51 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &49248705560269561
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7046038690857128994}
-  - component: {fileID: 8168252012667265535}
-  m_Layer: 9
-  m_Name: 2DCollider
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7046038690857128994
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49248705560269561}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0000000095286, y: 0.1071, z: 0.000000018593}
-  m_LocalScale: {x: 0.0759064, y: 0.0759064, z: 0.0759064}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6869515459823275457}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &8168252012667265535
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49248705560269561}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 1.2
-  m_Height: 5
-  m_Direction: 1
-  m_Center: {x: -0.0000014305117, y: 0.84, z: -0.0000019073489}
 --- !u!1 &140788103526887104
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,11 +535,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6869515459823275457}
   - component: {fileID: 6404068742861384232}
-  - component: {fileID: 4330076184807192880}
+  - component: {fileID: 9041200614999964643}
+  - component: {fileID: 6061488060013630598}
   - component: {fileID: 6061488060013631352}
   - component: {fileID: 6061488060013631353}
   - component: {fileID: 6061488060013630599}
-  - component: {fileID: 6061488060013630598}
   - component: {fileID: -267933060343046070}
   m_Layer: 9
   m_Name: EyeMonster
@@ -608,7 +562,6 @@ Transform:
   m_Children:
   - {fileID: 6578871431887316236}
   - {fileID: 8288676085436515373}
-  - {fileID: 7046038690857128994}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -131.827, z: 0}
@@ -633,8 +586,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!135 &4330076184807192880
-SphereCollider:
+--- !u!136 &9041200614999964643
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -643,100 +596,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.06
-  m_Center: {x: 0, y: 0.04, z: 0}
---- !u!195 &6061488060013631352
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6061488060013631355}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.04
-  m_Speed: 21
-  m_Acceleration: 150
-  avoidancePriority: 50
-  m_AngularSpeed: 360
-  m_StoppingDistance: 3.5
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.08
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 2
---- !u!114 &6061488060013631353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6061488060013631355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b00d7251f43918c479e53913db8d8ead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  chaseDistance: 20
-  attackDelay: 0.6
-  attackDamage: 20
-  attackRange: 4
-  dropPickupChance: 5
-  monsterCollider: {fileID: 4330076184807192880}
-  twoDMonsterCollider: {fileID: 8168252012667265535}
-  damageSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
-  deathSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
---- !u!114 &6061488060013630599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6061488060013631355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c3e3577138e64a488ab0975ae99eefd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalHp: 80
-  currentHp: 80
-  OnTakeDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6061488060013631353}
-        m_TargetAssemblyTypeName: ChaserMonster, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnDie:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6061488060013631353}
-        m_TargetAssemblyTypeName: ChaserMonster, Assembly-CSharp
-        m_MethodName: Die
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  hpText: {fileID: 0}
-  bloodImage: {fileID: 0}
-  healthBar: {fileID: 0}
+  m_Radius: 0.05
+  m_Height: 0.13
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!82 &6061488060013630598
 AudioSource:
   m_ObjectHideFlags: 0
@@ -833,6 +696,97 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!195 &6061488060013631352
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061488060013631355}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.04
+  m_Speed: 21
+  m_Acceleration: 150
+  avoidancePriority: 50
+  m_AngularSpeed: 360
+  m_StoppingDistance: 3.5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.08
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 2
+--- !u!114 &6061488060013631353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061488060013631355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00d7251f43918c479e53913db8d8ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  chaseDistance: 25
+  attackDelay: 0.6
+  attackDamage: 20
+  attackRange: 4
+  hitStunDuration: 0
+  dropPickupChance: 5
+  colliderHeightIncrease: 0.53
+  damageSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
+  deathSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
+--- !u!114 &6061488060013630599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061488060013631355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3e3577138e64a488ab0975ae99eefd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHp: 80
+  currentHp: 80
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6061488060013631353}
+        m_TargetAssemblyTypeName: ChaserMonster, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6061488060013631353}
+        m_TargetAssemblyTypeName: ChaserMonster, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  hpText: {fileID: 0}
+  bloodImage: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!114 &-267933060343046070
 MonoBehaviour:
   m_ObjectHideFlags: 0

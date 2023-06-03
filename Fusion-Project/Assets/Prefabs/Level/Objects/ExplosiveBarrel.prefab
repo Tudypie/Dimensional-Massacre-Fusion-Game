@@ -83,7 +83,7 @@ MonoBehaviour:
   radius: 17
   explosionForce: 3500
   explosionDamage: 500
-  explosionTimer: 1
+  explosionTimer: 0.8
   explosionEffect: {fileID: 100010, guid: e0609132424a24844b1d53ad3d704fd9, type: 3}
 --- !u!114 &4963771838243686732
 MonoBehaviour:

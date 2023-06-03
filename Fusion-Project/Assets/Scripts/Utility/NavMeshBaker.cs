@@ -7,20 +7,13 @@ public class NavMeshBaker : MonoBehaviour {
 
     public static NavMeshBaker Instance;
 
+    [SerializeField] NavMeshSurface surface;
+
     private void Awake()
     {
         Instance = this;
     }
-    
-    public void BakeNavigation(NavMeshSurface[] surfaces = null)
-    {   
-        for (int i = 0; i < surfaces.Length; i++) 
-        {
-            surfaces[i].BuildNavMesh();    
-        }    
-    }
-
-    public void BakeNavigation(NavMeshSurface surface = null) 
+    public void BakeNavigation() 
     {   
         surface.BuildNavMesh();
     }

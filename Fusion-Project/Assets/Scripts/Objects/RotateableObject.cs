@@ -33,7 +33,7 @@ public class RotateableObject : MonoBehaviour
         if(Vector3.Distance(transform.rotation.eulerAngles, endRotation) < 0.2f && isRotatingForward)
         {   
             finishedRotation = true;
-            NavMeshBaker.Instance.BakeNavigation(surface);
+            NavMeshBaker.Instance.BakeNavigation();
             return;
         }
         else if(Vector3.Distance(transform.rotation.eulerAngles, startRotation) < 0.2f && !isRotatingForward)

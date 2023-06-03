@@ -23,14 +23,13 @@ public class Explosive : MonoBehaviour
         Invoke("ExplodeAfterTimer", explosionTimer);
     }
 
-    public void ExplodeAfterTimer()
+    private void ExplodeAfterTimer()
     {   
+        CameraShake.Instance.Shake(0.7f);
         AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.explosion, transform);
-
         Instantiate(explosionEffect, transform.position, transform.rotation);
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
-
         foreach(Collider nearbyObject in colliders)
         {
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
