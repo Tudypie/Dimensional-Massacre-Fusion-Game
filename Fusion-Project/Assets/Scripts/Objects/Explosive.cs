@@ -10,6 +10,11 @@ public class Explosive : MonoBehaviour
     [SerializeField] float explosionTimer = 1f;
     [SerializeField] GameObject explosionEffect;
 
+    [Header("Audio")]
+
+    [SerializeField, Space] AudioClip beforeExplosionSound;
+    [SerializeField] AudioClip explosionSound;
+
     private AudioSource audioSource;
 
     private void Start()
@@ -19,14 +24,16 @@ public class Explosive : MonoBehaviour
 
     public void Explode()
     {
-        audioSource.PlayOneShot(AudioPlayer.Instance.airRelease);
+        if(beforeExplosionSound != null)
+            AudioPlayer.Instance.PlayAudio(beforeExplosionSound, transform);
         Invoke("ExplodeAfterTimer", explosionTimer);
     }
 
     private void ExplodeAfterTimer()
     {   
         CameraShake.Instance.Shake(0.7f);
-        AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.explosion, transform);
+        if(explosionSound != null)
+            AudioPlayer.Instance.PlayAudio(explosionSound, transform);
         Instantiate(explosionEffect, transform.position, transform.rotation);
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);

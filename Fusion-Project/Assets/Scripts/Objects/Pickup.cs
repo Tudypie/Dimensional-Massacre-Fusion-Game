@@ -8,7 +8,8 @@ public class Pickup : MonoBehaviour
     {
         Health,
         Shield,
-        Ammo
+        Ammo,
+        Grenade
     }
 
     [SerializeField] private PickupType pickupType;
@@ -30,6 +31,10 @@ public class Pickup : MonoBehaviour
                 case PickupType.Ammo:
                     other.gameObject.GetComponent<Bullets>().AddBullets((int)amount);     
                     AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.ammoPickup);            
+                    break;
+                case PickupType.Grenade:
+                    other.gameObject.GetComponent<Grenades>().AddGrenades((int)amount);
+                    AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.grenadePickup);
                     break;
             }
             Destroy(gameObject);

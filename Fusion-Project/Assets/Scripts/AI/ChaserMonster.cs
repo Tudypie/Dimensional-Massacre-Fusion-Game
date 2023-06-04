@@ -3,42 +3,44 @@ using UnityEngine.AI;
 
 public class ChaserMonster : MonoBehaviour
 {   
-
-    enum State
+    public enum State
     {
         Idle,
         Chase,
         Attack,
         Stunned,
-        Dead
+        Dead,
+        JumpAttack
     }
 
-    [SerializeField] private State state;
-
-    [Header("Monster Settings")]
-
-    [SerializeField] public float chaseDistance = 20f;
-    [SerializeField] private float attackDelay = 1f;
-    [SerializeField] private float attackDamage = 15f;
-    [SerializeField] private float attackRange = 3f;
-    [SerializeField] private float hitStunDuration = 0.5f;
-    [SerializeField] public int dropPickupChance = 5;
-    [SerializeField] private float colliderHeightIncrease = 2f;
-    private bool canAttack = true;
+    public State state;
 
     [Header("Audio")]
     [SerializeField] private AudioClip damageSound;
     [SerializeField] private AudioClip deathSound;
 
-    private CapsuleCollider monsterCollider;
-    private float initialColliderHeight;
-    private Transform playerTransform;
-    private Camera mainCamera;
-    private NavMeshAgent agent;
-    private Animator anim;
-    private AudioSource audioSource;
-    private void Start()
-    {
+    [Header("Monster Settings")]
+    public float initialSpeed;
+    public float initialAcceleration;
+    public float chaseDistance = 20f;
+    public float attackDelay = 1f;
+    public float attackDamage = 15f;
+    public float attackRange = 3f;
+    public float hitStunDuration = 0.5f;
+    public int dropPickupChance = 5;
+    public float colliderHeightIncrease = 2f;
+    public bool canAttack = true;
+
+    [HideInInspector] public CapsuleCollider monsterCollider;
+    [HideInInspector] public float initialColliderHeight;
+    [HideInInspector] public Transform playerTransform;
+    [HideInInspector] public Camera mainCamera;
+    [HideInInspector] public NavMeshAgent agent;
+    [HideInInspector] public Animator anim;
+    [HideInInspector] public AudioSource audioSource;
+
+    protected virtual void Start()
+    {   
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         monsterCollider = GetComponent<CapsuleCollider>();
         initialColliderHeight = monsterCollider.height;
@@ -46,9 +48,11 @@ public class ChaserMonster : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        initialSpeed = agent.speed;
+        initialAcceleration = agent.acceleration;
     }
 
-    private void Update()
+    protected virtual void Update()
     {   
         if(state == State.Dead || state == State.Stunned || agent.enabled == false)
             return;
@@ -71,7 +75,7 @@ public class ChaserMonster : MonoBehaviour
                 break;
         }
 
-        if(state == State.Attack || state == State.Chase)
+        if(state != State.Idle)
             return;
 
         if (Vector3.Distance(transform.position, playerTransform.position) > chaseDistance)
@@ -81,7 +85,7 @@ public class ChaserMonster : MonoBehaviour
         
     }
 
-    private void Chase()
+    protected virtual void Chase()
     {
         agent.SetDestination(playerTransform.position);
         anim.SetBool("Chase", true);
@@ -128,12 +132,16 @@ public class ChaserMonster : MonoBehaviour
         anim.SetBool("Chase", false);
     }
 
-    public void TakeDamage()
+    protected virtual void TakeDamage()
     {
-        agent.SetDestination(transform.position);
-        anim.SetBool("TakeDamage", true);
         mainCamera.GetComponent<CameraShake>().Shake(0.8f);
         audioSource.PlayOneShot(damageSound);
+
+        if(state == State.JumpAttack)
+            return;
+
+        agent.SetDestination(transform.position);
+        anim.SetBool("TakeDamage", true);
         state = State.Stunned;
         Invoke("EndDamageStun", hitStunDuration);
     }

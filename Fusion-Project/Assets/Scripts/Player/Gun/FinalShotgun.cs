@@ -37,6 +37,9 @@ public class FinalShotgun : MonoBehaviour
     [SerializeField] float propulsionForce = 100f;
     [SerializeField] float shootingForce = 100f;
 
+    public float Damage { get => damage; set => damage = value; }
+    public float FireRate { get => fireRate; set => fireRate = value; }
+
     private void Update()
     {   
         if(laserFadeTimer > 0f)

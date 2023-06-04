@@ -4,7 +4,6 @@ public class MusicController : MonoBehaviour
 {
     [SerializeField] private AudioSource calmMusic;
     [SerializeField] private AudioSource agressiveMusic;
-    [SerializeField] private float disableAgressiveMusicTime = 5f;
     [SerializeField] public bool playerIsChased;
 
     public static MusicController Instance;

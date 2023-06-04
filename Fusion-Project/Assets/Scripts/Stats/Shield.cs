@@ -14,11 +14,6 @@ public class Shield : MonoBehaviour
     [SerializeField] private TMP_Text shieldText;
     [SerializeField] private Image shieldBar;
 
-    private void Start()
-    {
-        if(gameObject.tag == "Player")
-            shieldHealth = PlayerPrefs.GetFloat("Shield");
-    }
     private void Update()
     {          
         if(shieldText != null)

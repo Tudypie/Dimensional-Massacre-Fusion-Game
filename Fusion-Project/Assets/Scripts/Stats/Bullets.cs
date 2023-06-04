@@ -13,14 +13,15 @@ public class Bullets : MonoBehaviour
 
     void Start()
     {
-        bullets = PlayerPrefs.GetInt("Bullets");
-        bulletsText.text = bullets.ToString();
+        if(bulletsText != null)
+            bulletsText.text = bullets.ToString();
     }
 
     public void RemoveBullet()
     {
         bullets--;
-        bulletsText.text = bullets.ToString();
+        if(bulletsText != null)
+            bulletsText.text = bullets.ToString();
     }
 
     public void AddBullets(int amount)
@@ -28,6 +29,7 @@ public class Bullets : MonoBehaviour
         bullets += amount;
         if (bullets > maxBullets)
             bullets = maxBullets;
-        bulletsText.text = bullets.ToString();
+        if (bulletsText != null)
+            bulletsText.text = bullets.ToString();
     }
 }

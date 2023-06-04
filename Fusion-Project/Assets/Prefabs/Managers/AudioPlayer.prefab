@@ -53,6 +53,7 @@ MonoBehaviour:
   monsterDeath: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
   healthPickup: {fileID: 8300000, guid: 1f4072103c4c96144b52d3c508896530, type: 3}
   ammoPickup: {fileID: 8300000, guid: d0b4893b4f71dac458573f0fb2c07a45, type: 3}
+  grenadePickup: {fileID: 8300000, guid: b9cdb137327b2d542b44212540fe6bbb, type: 3}
   airRelease: {fileID: 8300000, guid: 4a3787d293418b445a507f26c52fafe9, type: 3}
   explosion: {fileID: 8300000, guid: 6e07df092d09481409a1f1ddce392b2b, type: 3}
 --- !u!82 &4720811559502449003

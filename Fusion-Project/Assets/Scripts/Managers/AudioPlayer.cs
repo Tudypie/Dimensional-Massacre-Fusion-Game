@@ -20,6 +20,7 @@ public class AudioPlayer : MonoBehaviour
     [Header("Pickups")]
     public AudioClip healthPickup;
     public AudioClip ammoPickup;
+    public AudioClip grenadePickup;
 
     [Header("Miscellaneous")]
     public AudioClip airRelease;
