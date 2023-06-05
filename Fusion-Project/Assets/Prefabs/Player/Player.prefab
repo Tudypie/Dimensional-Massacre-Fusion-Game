@@ -1488,6 +1488,7 @@ GameObject:
   - component: {fileID: 1968371105}
   - component: {fileID: 6611182184875399762}
   - component: {fileID: 1615377756813982817}
+  - component: {fileID: 5713947311051680420}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1802,9 +1803,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05938459db388a4c81c91f86f09e52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThrowForce: 35
+  ThrowForce: 45
   threeDthrowObject: {fileID: 1755508181}
   twoDthrowObject: {fileID: 5858548408395725000}
+--- !u!114 &5713947311051680420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40805498025519910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f22ec19e826049b0e99f73a2468e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayingVoiceLine: 0
+  randomChanceToPlay: 3
+  voiceLines: []
 --- !u!1 &41407638652837394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +1891,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 15
+  orthographic size: 20
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2013,7 +2029,8 @@ MonoBehaviour:
   firstPersonCameraPoint: {fileID: 42420789683061070}
   topDownCameraPoint: {fileID: 42420789949968618}
   topDownParent: {fileID: 716254958965332291}
-  surfacesTransform: []
+  surfacesTransform:
+  - {fileID: 0}
   enableOffset: 0
   topDownCameraFollowSpeed: 5
   topDownMaxOffset: 5
@@ -2396,11 +2413,11 @@ MonoBehaviour:
   laserMaxRange: 10
   shotgunEnabled: 1
   raycastOffset: {x: 0, y: 0.2, z: -0.24}
-  range: 40
+  range: 50
   damage: 50
   fireRate: 0.8
   bulletsPerShot: 5
-  inaccuracyDistance: 4
+  inaccuracyDistance: 4.6
   shotgunPropulsion: 1
   propulsionForce: 750
   shootingForce: 250
@@ -7202,11 +7219,11 @@ MonoBehaviour:
   laserMaxRange: 10
   shotgunEnabled: 0
   raycastOffset: {x: 0, y: 0, z: 0}
-  range: 20
+  range: 50
   damage: 50
   fireRate: 0.8
   bulletsPerShot: 5
-  inaccuracyDistance: 4
+  inaccuracyDistance: 4.6
   shotgunPropulsion: 0
   propulsionForce: 12
   shootingForce: 250

@@ -25,7 +25,7 @@ public class MutantJump : ChaserMonster
     {
         base.Update();
 
-        if(state == State.JumpAttack)
+        if(isDoingJumpAttack)
             JumpAttack();
     }
 
@@ -52,7 +52,7 @@ public class MutantJump : ChaserMonster
 
     protected override void TakeDamage()
     {
-        if(state == State.JumpAttack)
+        if(isDoingJumpAttack)
         {
             agent.speed -= inAirHitSpeedReduction;
             agent.acceleration -= inAirHitSpeedReduction;
@@ -61,11 +61,7 @@ public class MutantJump : ChaserMonster
     }
 
     private void JumpAttack()
-    {   
-        if(!isDoingJumpAttack)
-            return;
-        
-        //inAirSpeed += airSpeedMultiplierOverTime * Time.deltaTime;
+    {       
         agent.SetDestination(playerTransform.position);
     }
     private void Landing()

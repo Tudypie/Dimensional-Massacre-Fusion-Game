@@ -47,5 +47,8 @@ MonoBehaviour:
   objectToSpawn:
   - {fileID: 4745700178425691017, guid: fe612bedd5fb57a4a9f67eef3ee86ccf, type: 3}
   - {fileID: 6061488060013631355, guid: 45b338a8d8983d24e8b3ae18c643e236, type: 3}
-  spawnBoxSize: {x: 165.1, y: 10, z: 111.5}
+  - {fileID: 9057278727594330522, guid: 978ddcdd8f139654ea8b92d04ec4b2e0, type: 3}
+  - {fileID: 1361778132620235713, guid: 092ece974f5675f40be4b85854deefde, type: 3}
+  - {fileID: 6829594303524047748, guid: 68d332b5fcf25ef49a1352866a782435, type: 3}
+  spawnBoxSize: {x: 123.34, y: 10, z: 130.4}
   spawnInterval: 2

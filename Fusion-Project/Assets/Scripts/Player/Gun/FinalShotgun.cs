@@ -83,7 +83,7 @@ public class FinalShotgun : MonoBehaviour
         }
 
         anim.Play("Shoot");
-        AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.shotgunShot);
+        AudioPlayer.Instance.PlayAudio(AudioPlayer.Instance.shotgunShot, 0.5f);
 
         bullets.RemoveBullet();
         

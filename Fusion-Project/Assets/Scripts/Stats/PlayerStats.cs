@@ -95,7 +95,13 @@ public class PlayerStats : MonoBehaviour
         PlayerPrefs.SetInt("Deaths", deaths);
     }
 
-    public void AddKill() => kills++;
+    public void AddKill()
+    {
+        kills++;
+        int random = Random.Range(0, VoiceLines.Instance.randomChanceToPlay);
+        if(random == 0) VoiceLines.Instance.PlayVoiceLine();
+            
+    }
     public void AddDeath() => deaths++;
     public void AddWin() => PlayerPrefs.SetInt("TimesWon", PlayerPrefs.GetInt("TimesWon") + 1);
         
