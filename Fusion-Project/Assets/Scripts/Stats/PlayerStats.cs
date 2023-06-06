@@ -98,8 +98,8 @@ public class PlayerStats : MonoBehaviour
     public void AddKill()
     {
         kills++;
-        int random = Random.Range(0, VoiceLines.Instance.randomChanceToPlay);
-        if(random == 0) VoiceLines.Instance.PlayVoiceLine();
+        //int random = Random.Range(0, VoiceLines.Instance.randomChanceToPlay);
+        //if(random == 0) VoiceLines.Instance.PlayVoiceLine();
             
     }
     public void AddDeath() => deaths++;

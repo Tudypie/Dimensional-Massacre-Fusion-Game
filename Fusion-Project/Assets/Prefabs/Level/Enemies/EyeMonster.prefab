@@ -750,15 +750,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  chaseDistance: 25
+  damageSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
+  deathSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
+  initialSpeed: 0
+  initialAcceleration: 0
+  chaseDistance: 40
   attackDelay: 0.6
   attackDamage: 20
   attackRange: 4
   hitStunDuration: 0
   dropPickupChance: 5
   colliderHeightIncrease: 0.53
-  damageSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
-  deathSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
+  canAttack: 1
+  monsterCollider: {fileID: 0}
+  initialColliderHeight: 0
+  playerTransform: {fileID: 0}
+  mainCamera: {fileID: 0}
+  agent: {fileID: 0}
+  anim: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &6061488060013630599
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 1795769384}
   - component: {fileID: 5882726404112233762}
   - component: {fileID: 162091491299971000}
+  - component: {fileID: 1145476854}
+  - component: {fileID: 1145476860}
+  - component: {fileID: 1145476866}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -90,5 +93,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4c43f2c4fab314cb06d8b039b7402d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surfaces: []
-  objectsToRotate: []
+  surface: {fileID: 0}
+--- !u!114 &1145476854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2449227246999232565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 545b5839968fdb548a8ec3ba651e9a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  calmMusic: {fileID: 0}
+  agressiveMusic: {fileID: 0}
+  playerIsChased: 0
+  agressiveMusicVolume: 0.75
+  fadeInSpeed: 1
+  fadeOutSpeed: 0.1
+--- !u!114 &1145476860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2449227246999232565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1831e1eba4baa458a4e74282293e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1145476866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2449227246999232565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7169bb603459f54795eeb0310fbb64d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6

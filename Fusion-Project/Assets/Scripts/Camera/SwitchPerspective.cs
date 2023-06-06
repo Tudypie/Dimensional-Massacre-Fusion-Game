@@ -74,7 +74,7 @@ public class SwitchPerspective : MonoBehaviour
             if(Physics.Raycast(new Vector3(topDownCameraPoint.position.x, 1000f, topDownCameraPoint.position.z),
             Vector3.down, out hit, Mathf.Infinity, groundLayer))
             {   
-                playerTransform.position = new Vector3(playerTransform.position.x, hit.point.y + 1f, playerTransform.position.z);
+                playerTransform.position = new Vector3(playerTransform.position.x, hit.point.y + 2f, playerTransform.position.z);
             }
 
         }

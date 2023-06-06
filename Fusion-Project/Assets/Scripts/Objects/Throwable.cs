@@ -7,6 +7,7 @@ public class Throwable : MonoBehaviour
 {   
     [HideInInspector] public float throwForce;
     [SerializeField] UnityEvent OnThrow;
+    [SerializeField] UnityEvent OnLand;
 
     [Header("Audio")]
     [SerializeField, Space] AudioClip throwSound;
@@ -28,6 +29,7 @@ public class Throwable : MonoBehaviour
     {
         if (collision.gameObject.tag == "Environment")
         {
+            OnLand?.Invoke();
             audioSource.PlayOneShot(landSound);
         }
     }

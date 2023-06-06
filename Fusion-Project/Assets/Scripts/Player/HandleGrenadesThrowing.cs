@@ -24,7 +24,6 @@ public class HandleGrenadesThrowing : MonoBehaviour
         {
             if (PlayerStats.Instance.playerGrenades.grenades > 0)
             {
-                throwObject.throwForce = ThrowForce;
                 throwObject.Throw();
                 PlayerStats.Instance.playerGrenades.RemoveGrenade();
             }

@@ -4,24 +4,31 @@ public class MusicController : MonoBehaviour
 {
     [SerializeField] private AudioSource calmMusic;
     [SerializeField] private AudioSource agressiveMusic;
-    [SerializeField] public bool playerIsChased;
+    public bool playerIsChased;
+    public float agressiveMusicVolume;
+    public float fadeInSpeed;
+    public float fadeOutSpeed;
 
     public static MusicController Instance;
 
     private void Awake()
-    {
+    {   
         if(Instance == null)
             Instance = this;
         else
-            Destroy(gameObject);
+            Destroy(gameObject);     
     }
 
     private void Update()
     {
         if(playerIsChased)
-            agressiveMusic.mute = false;
+        {
+            agressiveMusic.volume = Mathf.Lerp(agressiveMusic.volume, agressiveMusicVolume, fadeInSpeed * Time.deltaTime);
+        }
         else
-            agressiveMusic.mute = true;
+        {
+            agressiveMusic.volume -= fadeOutSpeed * Time.deltaTime;
+        }
     }
 
 

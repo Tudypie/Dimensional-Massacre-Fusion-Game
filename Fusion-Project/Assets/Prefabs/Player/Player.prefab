@@ -1488,7 +1488,6 @@ GameObject:
   - component: {fileID: 1968371105}
   - component: {fileID: 6611182184875399762}
   - component: {fileID: 1615377756813982817}
-  - component: {fileID: 5713947311051680420}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1764,7 +1763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991ef5568b03c6b42b19c31689a5b573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grenades: 3
+  grenades: 0
   maxGrenades: 999
   grenadesText: {fileID: 3616960234089439973}
 --- !u!114 &6611182184875399762
@@ -1781,7 +1780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHealth: 200
   initialShield: 0
-  initialBullets: 999
+  initialBullets: 6
   initialGrenades: 0
   playerHealth: {fileID: 7664352065460037395}
   playerShield: {fileID: 3726687874464707454}
@@ -1803,24 +1802,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05938459db388a4c81c91f86f09e52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThrowForce: 45
+  ThrowForce: 60
   threeDthrowObject: {fileID: 1755508181}
   twoDthrowObject: {fileID: 5858548408395725000}
---- !u!114 &5713947311051680420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40805498025519910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f22ec19e826049b0e99f73a2468e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlayingVoiceLine: 0
-  randomChanceToPlay: 3
-  voiceLines: []
 --- !u!1 &41407638652837394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,8 +1857,8 @@ Camera:
   m_GameObject: {fileID: 41407638652837394}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.122641504, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2420,7 +2404,7 @@ MonoBehaviour:
   inaccuracyDistance: 4.6
   shotgunPropulsion: 1
   propulsionForce: 750
-  shootingForce: 250
+  shootingForce: 320
 --- !u!114 &1755508181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2433,7 +2417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f06d913525073249895710f76800b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 0
+  throwForce: 50
   amount: 1
   spawnPoint: {fileID: 1245117623}
   objectToThrow: {fileID: 803421700060385266, guid: 6c6a0a333adc3be46a7bf585ffa9c4fc, type: 3}
@@ -2678,14 +2662,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4201479e70d36a74d9fe5122d674f630, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6593,7 +6577,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 8caa437b19957a045866b84c6218a0db, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -7226,7 +7210,7 @@ MonoBehaviour:
   inaccuracyDistance: 4.6
   shotgunPropulsion: 0
   propulsionForce: 12
-  shootingForce: 250
+  shootingForce: 320
 --- !u!1 &7187181640053501165
 GameObject:
   m_ObjectHideFlags: 0
@@ -7496,7 +7480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f06d913525073249895710f76800b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 0
+  throwForce: 25
   amount: 1
   spawnPoint: {fileID: 173436793}
   objectToThrow: {fileID: 803421700060385266, guid: 6c6a0a333adc3be46a7bf585ffa9c4fc, type: 3}

@@ -94,7 +94,7 @@ public class ChaserMonster : MonoBehaviour
 
         if(Vector3.Distance(transform.position, playerTransform.position) <= attackRange)
         {
-            Debug.Log("Player got in attack range of " + gameObject.name);
+            //Debug.Log("Player got in attack range of " + gameObject.name);
             state = State.Attack;
         }
         else if (Vector3.Distance(transform.position, playerTransform.position) > chaseDistance*1.6f)
@@ -107,7 +107,7 @@ public class ChaserMonster : MonoBehaviour
 
         if(Vector3.Distance(transform.position, playerTransform.position) > attackRange)
         {
-            Debug.Log("Player got out of attack range of" + gameObject.name);
+            //Debug.Log("Player got out of attack range of" + gameObject.name);
             anim.SetBool("Attack", false);
             state = State.Chase;
         }
@@ -117,7 +117,7 @@ public class ChaserMonster : MonoBehaviour
 
         canAttack = false;
 
-        Debug.Log(gameObject.name + " damaged player for " + attackDamage + " damage");
+        //Debug.Log(gameObject.name + " damaged player for " + attackDamage + " damage");
 
         playerTransform.gameObject.GetComponent<Health>().TakeDamage(attackDamage);
 

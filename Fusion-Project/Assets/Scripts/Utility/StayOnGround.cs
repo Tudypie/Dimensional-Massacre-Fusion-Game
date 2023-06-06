@@ -9,6 +9,7 @@ public class StayOnGround : MonoBehaviour
     private float timer = 0f;
 
     Component component;
+
     private void Update()
     {   
         if(timer > 0f)

@@ -10,7 +10,7 @@ public class OnEnterTriggerEvent : MonoBehaviour
 
     [SerializeField] private bool oneTimeTrigger = true;
     [SerializeField] private bool stayInTrigger = false;
-    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private LayerMask layerMask = 3;
 
     private void OnTriggerEnter(Collider other)
     {   
