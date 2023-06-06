@@ -17,7 +17,7 @@ public class FOVMonster : MonoBehaviour
     {
         foreach(FOVDamage fov in fovDamage)
         {
-            fov.fovEnabled = true;
+            fov.fovEnabled = false;
         }
        
         anim.Play("Death");
