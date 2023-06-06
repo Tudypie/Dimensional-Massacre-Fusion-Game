@@ -589,7 +589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245117622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.14999986, z: 1.3210001}
+  m_LocalPosition: {x: 0, y: -0.14999986, z: 2.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1802,7 +1802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05938459db388a4c81c91f86f09e52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThrowForce: 60
+  ThrowForce: 65
   threeDthrowObject: {fileID: 1755508181}
   twoDthrowObject: {fileID: 5858548408395725000}
 --- !u!1 &41407638652837394

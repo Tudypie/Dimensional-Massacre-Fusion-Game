@@ -9,7 +9,11 @@ public class Explosive : MonoBehaviour
     [SerializeField] float explosionDamage = 500f;
     [SerializeField] float explosionTimer = 1f;
     [SerializeField] GameObject explosionEffect;
+    [SerializeField] GameObject objectToDestroy;
     [SerializeField] LayerMask layerMask;
+
+    bool alreadyExploded = false;
+
 
     [Header("Audio")]
 
@@ -34,19 +38,27 @@ public class Explosive : MonoBehaviour
         if(beforeExplosionSound != null)
             audioSource.PlayOneShot(beforeExplosionSound);
 
+        Debug.Log("Explosive will explode in " + explosionTimer + " seconds");
         Invoke("ExplodeAfterTimer", explosionTimer);
     }
 
     public void ExplodeAfterTimer()
     {   
+        if(alreadyExploded)
+            return;
+            
+        alreadyExploded = true;
+
+        Debug.Log("BOOOM!");
         CameraShake.Instance.Shake(0.7f);
+        audioSource.Stop();
         if(explosionSound != null)
-            AudioPlayer.Instance.PlayAudio(explosionSound, transform);
+            audioSource.PlayOneShot(explosionSound);
         Instantiate(explosionEffect, transform.position, transform.rotation);
 
         Debug.Log("Colliders");
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius, layerMask);
-        Debug.Log("Explosive has" + colliders.Length + " colliders in radius");
+        Debug.Log("Explosive has " + colliders.Length + " colliders in radius");
         for(int i = 0; i < colliders.Length; i++)
         {   
             if(colliders[i].gameObject == this.gameObject)
@@ -64,23 +76,26 @@ public class Explosive : MonoBehaviour
                 Debug.Log(colliders[i].name + " has health");
                 Health health = colliders[i].GetComponent<Health>();
                 float distance = Vector3.Distance(transform.position, colliders[i].transform.position);
-                float damage = explosionDamage / (distance/10);
-                Debug.Log(colliders[i].name + " was " + distance + " units away and took " + damage + " damage.");
+                if(distance >= 10)
+                    explosionDamage /= distance/10;
+                Debug.Log(colliders[i].name + " was " + distance + " units away and took " + explosionDamage + " damage.");
                 
                 if(colliders[i].tag == "Player")
                 {
                     Debug.Log("Explosive damaged Player");
-                    health.TakeDamage(damage*0.07f);
+                    health.TakeDamage(explosionDamage*0.05f);
                 }            
                 else
                 {
                     Debug.Log("Explosive damaged Enemy or something else");
-                    health.TakeDamage(damage);
+                    health.TakeDamage(explosionDamage);
                 }
             }
         }
 
-        Destroy(gameObject);
+        GetComponent<Collider>().enabled = false;
+        Destroy(objectToDestroy);
+        enabled = false;
     
     }
 

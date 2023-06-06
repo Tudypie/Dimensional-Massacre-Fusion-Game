@@ -9,6 +9,8 @@ public class Throwable : MonoBehaviour
     [SerializeField] UnityEvent OnThrow;
     [SerializeField] UnityEvent OnLand;
 
+    bool landed = false;
+
     [Header("Audio")]
     [SerializeField, Space] AudioClip throwSound;
     [SerializeField] AudioClip landSound;
@@ -27,8 +29,11 @@ public class Throwable : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Environment")
-        {
+        if (collision.gameObject.tag == "Environment" || collision.gameObject.tag == "Enemy")
+        {   
+            if(landed)
+                return;
+            landed = true;
             OnLand?.Invoke();
             audioSource.PlayOneShot(landSound);
         }
