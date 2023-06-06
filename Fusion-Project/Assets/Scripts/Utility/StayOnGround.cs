@@ -26,7 +26,7 @@ public class StayOnGround : MonoBehaviour
             return;
         }
 
-        if(Input.GetKeyDown(KeyCode.Tab)) 
+        if(Input.GetKeyDown(KeyCode.Tab) && SwitchPerspective.Instance.enabled) 
         {
             timer = startTimer;
 

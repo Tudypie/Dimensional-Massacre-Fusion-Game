@@ -5860,8 +5860,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: POWER UP!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 912528403a8b33c45884bb9b6e256b68, type: 2}
-  m_sharedMaterial: {fileID: -2186311399030855000, guid: 912528403a8b33c45884bb9b6e256b68, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9964ca8d613fcd942abbd42677584a77, type: 2}
+  m_sharedMaterial: {fileID: -1859790059742203103, guid: 9964ca8d613fcd942abbd42677584a77, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5885,8 +5885,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -231,9 +231,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff34b7c6eaef7c440a0f7c2f5eaa438f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 13
+  radius: 12
   explosionForce: 1500
-  explosionDamage: 250
+  explosionDamage: 200
+  distanceDamageReduce: 10
   explosionTimer: 1
   explosionEffect: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
   objectToDestroy: {fileID: 2873893580993404576}

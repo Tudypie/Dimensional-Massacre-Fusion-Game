@@ -7,6 +7,7 @@ public class Explosive : MonoBehaviour
     [SerializeField] float radius = 5.0f;
     [SerializeField] float explosionForce = 700f;
     [SerializeField] float explosionDamage = 500f;
+    [SerializeField] float distanceDamageReduce = 10f;
     [SerializeField] float explosionTimer = 1f;
     [SerializeField] GameObject explosionEffect;
     [SerializeField] GameObject objectToDestroy;
@@ -76,8 +77,8 @@ public class Explosive : MonoBehaviour
                 Debug.Log(colliders[i].name + " has health");
                 Health health = colliders[i].GetComponent<Health>();
                 float distance = Vector3.Distance(transform.position, colliders[i].transform.position);
-                if(distance >= 10)
-                    explosionDamage /= distance/10;
+                if(distance >= distanceDamageReduce)
+                    explosionDamage /= distance/distanceDamageReduce;   
                 Debug.Log(colliders[i].name + " was " + distance + " units away and took " + explosionDamage + " damage.");
                 
                 if(colliders[i].tag == "Player")
