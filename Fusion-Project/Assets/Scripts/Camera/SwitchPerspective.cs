@@ -24,12 +24,12 @@ public class SwitchPerspective : MonoBehaviour
     [Header("Top Down Transition")]
     [SerializeField, Space] float lerpTransitionSpeed = 5f;
     [SerializeField] float lerpTransitionDuration = 1f;
-    private bool lerpTransitionInProgress = false;
+    public bool lerpTransitionInProgress = false;
     [SerializeField] private LayerMask groundLayer;
 
     private Vector3 topDownTargetPos;
     private Quaternion initialTopDownRotation;
-    private bool isTopDown = false;
+    public bool isTopDown = false;
     private float switchTimer;
 
 

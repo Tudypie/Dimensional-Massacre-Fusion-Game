@@ -68,7 +68,7 @@ public class MutantJump : ChaserMonster
     {
         Debug.Log(gameObject.name + " has landed and cannot jump attack anymore for " + jumpAttackCooldown + " seconds");
         agent.SetDestination(transform.position);
-        CameraShake.Instance.Shake(1.5f);
+        CameraShake.Instance.StartCoroutine(CameraShake.Instance.Shake(1.1f, 0.4f));
         isDoingJumpAttack = false;
         Invoke("ResetJumpAttack", jumpAttackCooldown);
         Invoke("GoBackToChase", 1f);

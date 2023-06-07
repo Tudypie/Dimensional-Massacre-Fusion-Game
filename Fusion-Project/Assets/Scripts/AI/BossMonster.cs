@@ -139,7 +139,7 @@ public class BossMonster : MonoBehaviour
 
     public void TakeDamage()
     {
-        mainCamera.GetComponent<CameraShake>().Shake(0.8f);
+        CameraShake.Instance.StartCoroutine(CameraShake.Instance.Shake(0.8f, 0.2f));
 
         audioSource.PlayOneShot(AudioPlayer.Instance.monsterHit);
 

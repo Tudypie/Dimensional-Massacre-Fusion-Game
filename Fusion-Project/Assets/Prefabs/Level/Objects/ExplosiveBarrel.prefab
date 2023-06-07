@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 4599218049770473883}
   - component: {fileID: 7090978035574305422}
   - component: {fileID: 7894306678698334494}
+  - component: {fileID: 1065914698294380996}
+  - component: {fileID: -1092604585690658847}
   m_Layer: 11
   m_Name: ExplosiveBarrel
   m_TagString: Environment
@@ -47,10 +49,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5885708071775052882}
   m_Material: {fileID: 13400000, guid: 9e3e7d9749e54c643b440f62e3cd7a42, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.06, y: 3.74, z: 2.06}
+  m_Size: {x: 4.12, y: 5.236, z: 4.12}
   m_Center: {x: 0.12, y: -0.6, z: -0.24}
 --- !u!54 &5885708071775052884
 Rigidbody:
@@ -60,7 +62,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5885708071775052882}
   serializedVersion: 2
-  m_Mass: 0.8
+  m_Mass: 0.72
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -82,7 +84,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 30
   explosionForce: 3500
-  explosionDamage: 450
+  explosionDamage: 400
+  distanceDamageReduce: 10
   explosionTimer: 0.8
   explosionEffect: {fileID: 100010, guid: e0609132424a24844b1d53ad3d704fd9, type: 3}
   objectToDestroy: {fileID: 7262847076664646649}
@@ -138,8 +141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366dbd8ed7f77574fab24c92d3c08a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDistanceFromPlayer: 0
   yOffset: 2
   startTimer: 1.3
+  keepOriginalPos: 0
+  initialYPos: 0
+  timer: 0
 --- !u!208 &7090978035574305422
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -252,6 +259,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &1065914698294380996
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885708071775052882}
+  m_Material: {fileID: 13400000, guid: 9e3e7d9749e54c643b440f62e3cd7a42, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 3.74, z: 2.06}
+  m_Center: {x: 0.12, y: -0.6, z: -0.24}
+--- !u!114 &-1092604585690658847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885708071775052882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbefe710a801e742a513291244e8212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7262847076664646649
 GameObject:
   m_ObjectHideFlags: 0

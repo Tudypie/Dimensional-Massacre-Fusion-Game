@@ -51,7 +51,7 @@ public class Explosive : MonoBehaviour
         alreadyExploded = true;
 
         Debug.Log("BOOOM!");
-        CameraShake.Instance.Shake(0.7f);
+        CameraShake.Instance.StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.2f));
         audioSource.Stop();
         if(explosionSound != null)
             audioSource.PlayOneShot(explosionSound);
@@ -78,7 +78,7 @@ public class Explosive : MonoBehaviour
                 Health health = colliders[i].GetComponent<Health>();
                 float distance = Vector3.Distance(transform.position, colliders[i].transform.position);
                 if(distance >= distanceDamageReduce)
-                    explosionDamage /= distance/distanceDamageReduce;   
+                    explosionDamage -= (distance * distanceDamageReduce);   
                 Debug.Log(colliders[i].name + " was " + distance + " units away and took " + explosionDamage + " damage.");
                 
                 if(colliders[i].tag == "Player")

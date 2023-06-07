@@ -67,14 +67,15 @@ public class FinalShotgun : MonoBehaviour
             return;
         }
 
-        if(!Input.GetButtonDown("Fire1"))
-            return;
+        if(Input.GetMouseButtonDown(0))
+            FireShotgun();
 
-        FireShotgun();
     }
 
     public void FireShotgun()
     {
+
+        Debug.Log(gameObject.name + " Fired");
         shootTimer = fireRate;
         if(bullets.bullets <= 0)
         {
@@ -101,6 +102,8 @@ public class FinalShotgun : MonoBehaviour
 
         if(Physics.Raycast(transform.position + raycastOffset, shootingDir, out hit, range, shootingRaycastLayers))
         {    
+            //Debug.Log(hit.transform.name);
+
             CreateLaser(hit.point);
 
             if(hit.transform.CompareTag("Environment"))
@@ -168,7 +171,9 @@ public class FinalShotgun : MonoBehaviour
     {
         Vector3 launchDirection = -Camera.main.transform.forward;
 
-        playerRigidbody.AddForce(launchDirection * propulsionForce);
+        if(Vector3.Angle(launchDirection, Vector3.up) < 45f)
+            playerRigidbody.AddForce(launchDirection * propulsionForce);
+
     }
 
     public void EnableShotgun() => shotgunEnabled = true;

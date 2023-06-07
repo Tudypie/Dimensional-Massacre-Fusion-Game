@@ -4764,9 +4764,9 @@ GameObject:
   - component: {fileID: 5910690856009479889}
   - component: {fileID: 6829594303524047749}
   - component: {fileID: 6829594303524047746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Twins
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4778,7 +4778,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6829594303524047748}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -109.06415, y: 9.022384, z: -18.74}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
@@ -4962,11 +4962,11 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: c50bb79cef2bb2449b5b7b8155942524, type: 3}
   initialSpeed: 0
   initialAcceleration: 0
-  chaseDistance: 27
+  chaseDistance: 35
   attackDelay: 0.85
   attackDamage: 30
   attackRange: 10
-  hitStunDuration: 0.7
+  hitStunDuration: 0.5
   dropPickupChance: 5
   colliderHeightIncrease: 2.25
   canAttack: 1
@@ -4989,8 +4989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3e3577138e64a488ab0975ae99eefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHp: 600
-  currentHp: 600
+  totalHp: 1000
+  currentHp: 1000
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -5036,8 +5036,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366dbd8ed7f77574fab24c92d3c08a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDistanceFromPlayer: 0
   yOffset: 1
-  startTimer: 1.3
+  startTimer: 1.4
+  keepOriginalPos: 0
 --- !u!1 &7020424357670904371
 GameObject:
   m_ObjectHideFlags: 0

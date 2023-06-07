@@ -97,7 +97,7 @@ public class ChaserMonster : MonoBehaviour
             //Debug.Log("Player got in attack range of " + gameObject.name);
             state = State.Attack;
         }
-        else if (Vector3.Distance(transform.position, playerTransform.position) > chaseDistance*1.6f)
+        else if (Vector3.Distance(transform.position, playerTransform.position) > chaseDistance*2f)
             state = State.Idle;
     }
 
@@ -134,7 +134,7 @@ public class ChaserMonster : MonoBehaviour
 
     protected virtual void TakeDamage()
     {
-        mainCamera.GetComponent<CameraShake>().Shake(0.8f);
+        CameraShake.Instance.StartCoroutine(CameraShake.Instance.Shake(1.1f, 0.2f));
         audioSource.PlayOneShot(damageSound);
 
         if(state == State.JumpAttack)

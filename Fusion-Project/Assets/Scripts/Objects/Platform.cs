@@ -16,6 +16,12 @@ public class Platform : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        StartCoroutine(SetParentToNull(other));
+    }
+
+    IEnumerator SetParentToNull(Collider other)
+    {
+        yield return new WaitForSeconds(1f);
         other.transform.parent = null;
     }
 }

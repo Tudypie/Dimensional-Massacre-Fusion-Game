@@ -5799,8 +5799,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366dbd8ed7f77574fab24c92d3c08a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDistanceFromPlayer: 0
   yOffset: 0
-  startTimer: 1.5
+  startTimer: 1.4
+  keepOriginalPos: 0
 --- !u!1 &4710911923487760562
 GameObject:
   m_ObjectHideFlags: 0

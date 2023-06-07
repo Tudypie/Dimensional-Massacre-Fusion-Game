@@ -39,7 +39,8 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(int index)
     {   
-        PlayerStats.Instance.SaveStats();
+        if(PlayerStats.Instance != null)
+            PlayerStats.Instance.SaveStats();
         if(webGLBuild)
         {
             SceneManager.LoadScene(index);

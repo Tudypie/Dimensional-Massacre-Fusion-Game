@@ -1,12 +1,8 @@
+using System.Collections;
 using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    public float shakeMagnitude = 0.1f;
-
-    [SerializeField] private float shakeTimer;
-    private Vector3 initialPosition;
-
     public static CameraShake Instance { get; private set; }
 
     private void Awake()
@@ -14,36 +10,25 @@ public class CameraShake : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
+    public IEnumerator Shake(float duration, float magnitude)
     {
-        initialPosition = transform.localPosition;
-    }
-
-    private void Update()
-    {
-        if (shakeTimer > 0)
+       /* Vector3 originalPos = transform.localPosition;
+        
+        float elapsed = 0.0f;
+        while(elapsed < duration)
         {
-            ShakeCamera();
-            Invoke("StopShaking", shakeTimer);
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+            
+            transform.localPosition = new Vector3(x, y, originalPos.z);
+            
+            elapsed += Time.deltaTime;
+            
+            yield return null;
         }
-    }
 
-    public void Shake(float shakeDuration=0.5f)
-    {
-        shakeTimer = shakeDuration;
-    }
+        transform.localPosition = originalPos;*/
 
-    private void ShakeCamera()
-    {
-        float offsetX = Mathf.PerlinNoise(Time.time * 50f, 0f) * 2f - 1f;
-        float offsetY = Mathf.PerlinNoise(0f, Time.time * 50f) * 2f - 1f;
-
-        Vector3 shakeOffset = new Vector3(offsetX, offsetY, 0f) * shakeMagnitude;
-        transform.localPosition = initialPosition + shakeOffset;
-    }
-
-    private void StopShaking()
-    {
-        shakeTimer = 0f;
+        yield return null;
     }
 }

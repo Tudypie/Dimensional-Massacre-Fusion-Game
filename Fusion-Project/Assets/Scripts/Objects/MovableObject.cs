@@ -25,19 +25,24 @@ public class MovableObject : MonoBehaviour
 
     private void Update()
     {   
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, startPosition.x, endPosition.x), transform.position.y, 
+        Mathf.Clamp(transform.position.z, startPosition.z, endPosition.z));
+        
         if(!startMovement)
             return;
 
         if(hasReachedEndPosition && isMovingForward)
             return;
 
-        if(Vector3.Distance(transform.position, endPosition) < 0.2f && isMovingForward)
+        if(Vector3.Distance(new Vector3(transform.position.x, 0f, transform.position.z), 
+        new Vector3(endPosition.x, 0f, endPosition.z)) < 0.2f && isMovingForward)
         {   
             hasReachedEndPosition = true;
             NavMeshBaker.Instance.BakeNavigation();
             return;
         }
-        else if(Vector3.Distance(transform.position, startPosition) < 0.2f && !isMovingForward)
+        else if(Vector3.Distance(new Vector3(transform.position.x, 0f, transform.position.z), 
+        new Vector3(startPosition.x, 0f, startPosition.z)) < 0.2f && !isMovingForward)
         {
             hasReachedEndPosition = false;
             startMovement = false;
@@ -50,6 +55,13 @@ public class MovableObject : MonoBehaviour
         }
         else
         {
+            if(Vector3.Distance(transform.position, startPosition) < 0.2f)
+            {
+                hasReachedEndPosition = false;
+                startMovement = false;
+                return;
+            }
+
             transform.Translate(Vector3.back * reverseDirections * Time.deltaTime * movingSpeed);
         }
     }

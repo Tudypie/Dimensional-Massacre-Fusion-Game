@@ -387,9 +387,9 @@ GameObject:
   - component: {fileID: 5005301591341918437}
   - component: {fileID: 3557606852747223509}
   - component: {fileID: 3557606852747223506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MovablePlatform
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
