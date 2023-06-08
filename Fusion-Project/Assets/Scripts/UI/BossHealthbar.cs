@@ -10,24 +10,27 @@ public class BossHealthbar : MonoBehaviour
     [SerializeField] private Image healthbarImage;
     [SerializeField] private TMP_Text shieldText;
     private Health health;
+    private Shield shield;
 
     private void Start()
     {
         health = GetComponent<Health>();
-        healthbarImage.color = Color.red;
+        shield = GetComponent<Shield>();
     }
 
     private void Update()
     {
         healthbarImage.fillAmount = health.currentHp / health.totalHp;
+        if(shield.enabled)
+            shieldText.text = "Shield Active: " + GetComponent<Shield>().shieldHealth.ToString("F0");
     }   
 
-    public void ChangeColorToBlue()
+    public void StartShieldPhase()
     {
         healthbarImage.color = Color.blue;
-        shieldText.text = "Shield Health: " + GetComponent<Shield>().shieldHealth.ToString("F0");
+        shieldText.text = "Shield Active: " + GetComponent<Shield>().shieldHealth.ToString("F0");
     }
-    public void ChangeColorToRed()
+    public void StopShieldPhase()
     {
         healthbarImage.color = Color.red;
         shieldText.text = "";

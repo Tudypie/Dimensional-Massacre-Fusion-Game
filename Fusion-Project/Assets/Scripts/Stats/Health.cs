@@ -44,7 +44,7 @@ public class Health : MonoBehaviour
 
         if(TryGetComponent(out Shield shield))
         {   
-            if(shield.shieldHealth > 0)
+            if(shield.shieldHealth > 0 && shield.enabled)
             {
                 shield.DamageShield(damage);
                 damage *= shield.damageReduction;

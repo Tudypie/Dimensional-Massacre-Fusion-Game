@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1013104123023833341}
   - component: {fileID: 7591987488354435394}
   - component: {fileID: 3647559648799480337}
-  - component: {fileID: 3848744073151029359}
   m_Layer: 11
   m_Name: MetalBox
   m_TagString: Environment
@@ -151,15 +150,3 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: -1.6120001, y: 1.113, z: 1.2090001}
   m_TimeToStationary: 0.5
---- !u!114 &3848744073151029359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013104123023833219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acbefe710a801e742a513291244e8212, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

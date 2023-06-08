@@ -134,7 +134,7 @@ public class ChaserMonster : MonoBehaviour
 
     protected virtual void TakeDamage()
     {
-        CameraShake.Instance.StartCoroutine(CameraShake.Instance.Shake(1.1f, 0.2f));
+        CameraShake.Instance.StartCoroutine(CameraShake.Instance.Shake(1.1f, 0.4f));
         audioSource.PlayOneShot(damageSound);
 
         if(state == State.JumpAttack)

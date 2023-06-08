@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MutantJump : ChaserMonster
 {
+    [Space]
+    [Header("Boss")]
+    public BossHealthbar bossHealthbar;
+    public GameObject healLineRenderer;
 
     [Header("Jump Attack")]
     public bool isDoingJumpAttack = false;
@@ -21,8 +26,24 @@ public class MutantJump : ChaserMonster
 
     private Vector3 jumpPosition;
 
+    [Header("Shield")] 
+    public Shield shield;
+    public float hitsTillShieldPhase = 25;
+    public float currentHits = 0;
+    public UnityEvent OnShieldPhase;
+    public UnityEvent OnShieldPhaseEnd;
+
     protected override void Update()
     {
+        if(shield.shieldHealth <= 0 && shield.enabled)
+        {
+            OnShieldPhaseEnd?.Invoke();
+            bossHealthbar.StopShieldPhase();
+            shield.enabled = false;
+            state = State.Chase;
+            agent.speed = initialSpeed;
+        }
+
         base.Update();
 
         if(isDoingJumpAttack)
@@ -32,7 +53,8 @@ public class MutantJump : ChaserMonster
     protected override void Chase()
     {
         if(canDoJumpAttack && Vector3.Distance(transform.position, playerTransform.position) <= jumpAttackRange
-        && Vector3.Distance(transform.position, playerTransform.position) > attackRange)
+        && Vector3.Distance(transform.position, playerTransform.position) > attackRange
+        && !shield.enabled)
         {   
             state = State.JumpAttack;
             canDoJumpAttack = false;
@@ -51,7 +73,17 @@ public class MutantJump : ChaserMonster
     }
 
     protected override void TakeDamage()
-    {
+    {   
+        currentHits++;
+        if(hitsTillShieldPhase == currentHits)
+        {   
+            OnShieldPhase?.Invoke();
+            bossHealthbar.StartShieldPhase();
+            currentHits = 0;
+            shield.enabled = true;
+            shield.shieldHealth = shield.shieldMaxHealth;
+        }
+
         if(isDoingJumpAttack)
         {
             agent.speed -= inAirHitSpeedReduction;

@@ -51,7 +51,7 @@ public class Explosive : MonoBehaviour
         alreadyExploded = true;
 
         Debug.Log("BOOOM!");
-        CameraShake.Instance.StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.2f));
+        CameraShake.Instance.StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.4f));
         audioSource.Stop();
         if(explosionSound != null)
             audioSource.PlayOneShot(explosionSound);
