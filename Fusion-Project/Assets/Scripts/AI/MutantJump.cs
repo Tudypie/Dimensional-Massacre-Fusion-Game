@@ -74,8 +74,9 @@ public class MutantJump : ChaserMonster
 
     protected override void TakeDamage()
     {   
-        currentHits++;
-        if(hitsTillShieldPhase == currentHits)
+        if(!shield.enabled) 
+            currentHits++;
+        if(currentHits >= hitsTillShieldPhase && !shield.enabled)
         {   
             OnShieldPhase?.Invoke();
             bossHealthbar.StartShieldPhase();

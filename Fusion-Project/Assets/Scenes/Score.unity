@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -834,7 +834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music by EverythingFantasy & CathulhuDev
+  m_text: Music by EverythingFantasy & Todoroki
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ce3b469a4ad44547bbb0e67f8383527, type: 2}
   m_sharedMaterial: {fileID: -2650473026703013389, guid: 8ce3b469a4ad44547bbb0e67f8383527, type: 2}
@@ -1765,7 +1765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1352}
+  m_AnchoredPosition: {x: 0, y: -1405}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584984203
@@ -1790,9 +1790,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\"Retro Super Shotgun\" (https://skfb.ly/6ZuRM) by \xD6mer Doruk\r\n\"Human-zergling\"
     (https://skfb.ly/6AwAS) by Elisey\r\n\"Eyebeast - Animated\" (https://skfb.ly/6TWRG)
-    by nodoxi\r\n\"Health Pack\" (https://skfb.ly/6wWtq) by saruedaacevedo\r\n\"Pickups\"
-    (https://skfb.ly/oovWT) by noortjeschuur\r\n\"PS1 TREES AND BUSHES\" (https://skfb.ly/oGWvS)
-    by EGOR4IK"
+    by nodoxi\r\n\"Pickups\" (https://skfb.ly/oovWT) by noortjeschuur\r\n\"PS1 TREES
+    AND BUSHES\" (https://skfb.ly/oGWvS) by EGOR4IK\r\n\"Industrial Box Steel Containers\"
+    (https://skfb.ly/6RV8W) by Dinesh Naidu\r\n\"Barrel\" (https://skfb.ly/6C9L8)
+    by DPLDS\r\n\"Sci-fi Themed Grenade.\" (https://skfb.ly/6vpYY) by Styx\r\n\"Icosphere
+    Studies 2\" (https://skfb.ly/oy8KZ) by tamminen\r\n\"Spooky Tree\" (https://skfb.ly/6RJ8T)
+    by Marissa Menlove \r\n\"Spooky Tree\" (https://skfb.ly/Sp7B) by smsithlord \r\n\"Swirly
+    Tree\" (https://skfb.ly/6WFBt) by Ale_Montes \r\n\"Spooky Tree (3)\" (https://skfb.ly/oAPAT)
+    by NorahvanNimwegen"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ce3b469a4ad44547bbb0e67f8383527, type: 2}
   m_sharedMaterial: {fileID: -2650473026703013389, guid: 8ce3b469a4ad44547bbb0e67f8383527, type: 2}
@@ -2062,6 +2067,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1795769384, guid: 500dc50fc8346974986e8fc03988a40e, type: 3}
     - {fileID: 1121266708, guid: 500dc50fc8346974986e8fc03988a40e, type: 3}
+    - {fileID: 1145476854, guid: 500dc50fc8346974986e8fc03988a40e, type: 3}
+    - {fileID: 162091491299971000, guid: 500dc50fc8346974986e8fc03988a40e, type: 3}
+    - {fileID: 5882726404112233762, guid: 500dc50fc8346974986e8fc03988a40e, type: 3}
+    - {fileID: 1145476866, guid: 500dc50fc8346974986e8fc03988a40e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 500dc50fc8346974986e8fc03988a40e, type: 3}
 --- !u!1 &1702507132
 GameObject:
@@ -2550,7 +2559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1614}
+  m_AnchoredPosition: {x: 0, y: -1754}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1872628057

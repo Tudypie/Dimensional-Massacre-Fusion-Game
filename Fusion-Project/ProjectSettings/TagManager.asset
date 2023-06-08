@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - FxTemporaire
   - FallTrigger
+  - Boss
   layers:
   - Default
   - TransparentFX

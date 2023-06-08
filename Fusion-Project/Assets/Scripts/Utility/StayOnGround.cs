@@ -6,7 +6,7 @@ public class StayOnGround : MonoBehaviour
 {
     [SerializeField] private float minDistanceFromPlayer;
     [SerializeField] float yOffset = 1f;
-    [SerializeField] float startTimer = 1.3f;
+    [SerializeField] float startTimer = 1.4f;
     [SerializeField] bool keepOriginalPos = false;
     public float initialYPos;
     public float timer = 0f;
@@ -138,6 +138,7 @@ public class StayOnGround : MonoBehaviour
     {
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<Rigidbody>().useGravity = false;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
 }

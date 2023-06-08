@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -50,6 +51,9 @@ public class ChaserMonster : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         initialSpeed = agent.speed;
         initialAcceleration = agent.acceleration;
+
+        if(GetComponent<Healer>() != null)
+            StartCoroutine(ActiveHealerEffect());
     }
 
     protected virtual void Update()
@@ -177,6 +181,17 @@ public class ChaserMonster : MonoBehaviour
             SpawnPickupable.Instance.Spawn(transform);
 
         PlayerStats.Instance.AddKill();
+
+        if(GetComponent<Healer>() != null)
+            GetComponent<Healer>().lr.enabled = false;
+    }
+
+    IEnumerator ActiveHealerEffect()
+    {   
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<Healer>().enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<Healer>().enabled = true;
     }
 
 }

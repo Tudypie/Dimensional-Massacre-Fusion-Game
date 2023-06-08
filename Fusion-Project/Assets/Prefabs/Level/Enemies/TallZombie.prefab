@@ -4545,7 +4545,7 @@ MonoBehaviour:
   fovEnabled: 1
   fov2DOffset: {x: 0.489, y: 0.198, z: -0.78}
   fovDelay: 0.1
-  viewRadius: 65
+  viewRadius: 55
   viewAngle: 85
   targetMask:
     serializedVersion: 2
@@ -4572,10 +4572,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.9254902, b: 0.38431373, a: 1}
-  m_Intensity: 3
+  m_Intensity: 4
   m_Range: 70
-  m_SpotAngle: 90
-  m_InnerSpotAngle: 6
+  m_SpotAngle: 70
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -5752,8 +5752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3e3577138e64a488ab0975ae99eefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHp: 2000
-  currentHp: 2000
+  totalHp: 3000
+  currentHp: 3000
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -5803,6 +5803,8 @@ MonoBehaviour:
   yOffset: 0
   startTimer: 1.4
   keepOriginalPos: 0
+  initialYPos: 0
+  timer: 0
 --- !u!1 &4710911923487760562
 GameObject:
   m_ObjectHideFlags: 0
@@ -6337,7 +6339,7 @@ MonoBehaviour:
   fovEnabled: 1
   fov2DOffset: {x: 1.302, y: -0.187, z: 1.121}
   fovDelay: 0.1
-  viewRadius: 65
+  viewRadius: 55
   viewAngle: 85
   targetMask:
     serializedVersion: 2
@@ -6364,10 +6366,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.9254902, b: 0.38431373, a: 1}
-  m_Intensity: 3
+  m_Intensity: 4
   m_Range: 70
-  m_SpotAngle: 90
-  m_InnerSpotAngle: 9
+  m_SpotAngle: 70
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -9230,7 +9232,7 @@ MonoBehaviour:
   fovEnabled: 1
   fov2DOffset: {x: 1.359, y: 0.198, z: -1.043}
   fovDelay: 0.1
-  viewRadius: 65
+  viewRadius: 55
   viewAngle: 85
   targetMask:
     serializedVersion: 2
@@ -9257,10 +9259,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.9254902, b: 0.38431373, a: 1}
-  m_Intensity: 3
+  m_Intensity: 4
   m_Range: 70
-  m_SpotAngle: 90
-  m_InnerSpotAngle: 6
+  m_SpotAngle: 70
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2

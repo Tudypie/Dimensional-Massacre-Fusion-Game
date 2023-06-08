@@ -1656,7 +1656,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2206130388140989199}
         m_TargetAssemblyTypeName: FinalShotgun, Assembly-CSharp
         m_MethodName: DisableShotgun
         m_Mode: 1
@@ -1668,7 +1668,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8449052292992414681}
         m_TargetAssemblyTypeName: FinalShotgun, Assembly-CSharp
         m_MethodName: DisableShotgun
         m_Mode: 1
@@ -1778,8 +1778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e132b751f0d61e47a7b77b561db7b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 200
-  initialShield: 0
+  initialHealth: 300
+  initialShield: 200
   initialBullets: 6
   initialGrenades: 0
   playerHealth: {fileID: 7664352065460037395}
@@ -2416,11 +2416,11 @@ MonoBehaviour:
   laserMaxRange: 10
   shotgunEnabled: 1
   raycastOffset: {x: 0, y: 0, z: 0}
-  range: 50
-  damage: 40
+  range: 42
+  damage: 50
   fireRate: 0.8
   bulletsPerShot: 6
-  inaccuracyDistance: 5
+  inaccuracyDistance: 4
   shotgunPropulsion: 1
   propulsionForce: 750
   shootingForce: 300
@@ -2472,7 +2472,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 3136
-  isGrounded: 1
+  isGrounded: 0
 --- !u!1 &42420789213238847
 GameObject:
   m_ObjectHideFlags: 0
@@ -5958,11 +5958,11 @@ MonoBehaviour:
   laserMaxRange: 10
   shotgunEnabled: 0
   raycastOffset: {x: 0, y: 0, z: 0}
-  range: 50
-  damage: 40
+  range: 42
+  damage: 50
   fireRate: 0.8
   bulletsPerShot: 6
-  inaccuracyDistance: 5
+  inaccuracyDistance: 4
   shotgunPropulsion: 1
   propulsionForce: 750
   shootingForce: 300
@@ -6614,7 +6614,7 @@ MonoBehaviour:
   damage: 40
   fireRate: 0.8
   bulletsPerShot: 6
-  inaccuracyDistance: 5
+  inaccuracyDistance: 4.3
   shotgunPropulsion: 1
   propulsionForce: 750
   shootingForce: 300

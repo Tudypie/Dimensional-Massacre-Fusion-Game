@@ -828,8 +828,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.85
-  m_Height: 3.34
+  m_Radius: 1.2
+  m_Height: 5
   m_Direction: 1
   m_Center: {x: 0, y: 1.74, z: 0.44}
 --- !u!82 &8690725510733542710
@@ -973,7 +973,7 @@ MonoBehaviour:
   attackRange: 4.5
   hitStunDuration: 0.5
   dropPickupChance: 4
-  colliderHeightIncrease: 2
+  colliderHeightIncrease: 5
   canAttack: 1
   monsterCollider: {fileID: 0}
   initialColliderHeight: 0
@@ -1045,6 +1045,8 @@ MonoBehaviour:
   yOffset: 0
   startTimer: 1.4
   keepOriginalPos: 0
+  initialYPos: 0
+  timer: 0
 --- !u!1 &5221188741860278099
 GameObject:
   m_ObjectHideFlags: 0

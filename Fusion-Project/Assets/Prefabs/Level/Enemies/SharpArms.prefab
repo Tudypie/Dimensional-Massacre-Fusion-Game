@@ -297,7 +297,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.34
+  m_Radius: 0.5
   m_Height: 2.15
   m_Direction: 1
   m_Center: {x: 0, y: 0.92, z: 0}
@@ -514,6 +514,8 @@ MonoBehaviour:
   yOffset: 1
   startTimer: 1.4
   keepOriginalPos: 0
+  initialYPos: 0
+  timer: 0
 --- !u!1 &1384832983053121192
 GameObject:
   m_ObjectHideFlags: 0
