@@ -11,7 +11,7 @@ public class Grenades : MonoBehaviour
     [Header("ONLY FOR PLAYER")]
     public TMP_Text grenadesText;
 
-    void Start()
+    void Update()
     {
         if(grenadesText != null)
             grenadesText.text = grenades.ToString();

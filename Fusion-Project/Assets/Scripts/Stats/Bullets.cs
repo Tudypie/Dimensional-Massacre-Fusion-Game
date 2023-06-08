@@ -11,7 +11,7 @@ public class Bullets : MonoBehaviour
     [Header("ONLY FOR PLAYER")]
     public TMP_Text bulletsText;
 
-    void Start()
+    void Update()
     {
         if(bulletsText != null)
             bulletsText.text = bullets.ToString();

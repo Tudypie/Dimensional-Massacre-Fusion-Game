@@ -44,7 +44,7 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-    public void NewGame() => PlayerPrefs.SetInt("NewGame", 0);
+    public void NewGame() => PlayerPrefs.DeleteAll();
 
     public void SetInitialStats()
     {

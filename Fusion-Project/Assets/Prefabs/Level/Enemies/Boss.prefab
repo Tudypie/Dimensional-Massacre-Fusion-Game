@@ -487,7 +487,7 @@ MonoBehaviour:
   attackDelay: 1.1
   attackDamage: 50
   attackRange: 8
-  hitStunDuration: 0.6
+  hitStunDuration: 0.1
   dropPickupChance: 5
   colliderHeightIncrease: 0
   canAttack: 1

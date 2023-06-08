@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04843296, g: 0.0010073915, b: 0.00043693383, a: 1}
+  m_IndirectSpecularColor: {r: 0.04510505, g: 0.0009471445, b: 0.00041147124, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -32355,6 +32355,18 @@ MonoBehaviour:
   onEnterEvent:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 190955430}
+        m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
+        m_MethodName: NewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 190955430}
         m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
         m_MethodName: SetInitialStats

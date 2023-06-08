@@ -1779,9 +1779,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialHealth: 300
-  initialShield: 200
+  initialShield: 100
   initialBullets: 6
-  initialGrenades: 0
+  initialGrenades: 1
   playerHealth: {fileID: 7664352065460037395}
   playerShield: {fileID: 3726687874464707454}
   playerBullets: {fileID: 8662125012796368605}
